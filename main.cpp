@@ -4,7 +4,6 @@ int main()
 {
 	std::string dashes(50, '-'); 
 	LinkedList<int> List;
-	LinkedList<const char*> List2;
 
 	// LinkedList<int>::iterator itr;
 	// LinkedList<const char*>::iterator itr2;
@@ -14,11 +13,6 @@ int main()
 	List.makeNewNode(3);
 	List.makeNewNode(4);
 	List.makeNewNode(5);
-	List2.makeNewNode("one");
-	List2.makeNewNode("two");
-	List2.makeNewNode("three");
-	List2.makeNewNode("four");
-	List2.makeNewNode("five");
 
 	//Show current nodes	
 	{
@@ -28,7 +22,6 @@ int main()
 	LINE;
 	std::cout << dashes << std::endl;
 	std::cout << List << std::endl;
-	std::cout << List2 << std::endl;
 	}
 	// for (itr = List.begin(), itr2 = List.end(); itr != itr2; ++itr)
 	// {
@@ -69,9 +62,7 @@ int main()
 	LINE;
 	std::cout << dashes << std::endl;
 	List.deleteNode(1);
-	List2.deleteNode("one");
 	std::cout << List << std::endl;
-	std::cout << List2 << std::endl;
 	}
 
 	//Delete Tail
@@ -82,9 +73,7 @@ int main()
 	LINE;
 	std::cout << dashes << std::endl;
 	List.deleteNode(5);
-	List2.deleteNode("five");
 	std::cout << List << std::endl;
-	std::cout << List2 << std::endl;
 	}
 
 	//Delete Specific Node
@@ -95,9 +84,7 @@ int main()
 	LINE;
 	std::cout << dashes << std::endl;
 	List.deleteNode(3);
-	List2.deleteNode("three");
 	std::cout << List << std::endl;
-	std::cout << List2 << std::endl;
 	}
 
 	// LINE;
@@ -157,10 +144,9 @@ int main()
 	LINE;
 	std::cout << dashes << std::endl;
 	List.insertAfter(2, 9);
-	List2.insertAfter("two", "nine");
+	List.insertAfter(4, 9);
 	std::cout << List << std::endl;
 	LINE;
-	std::cout << List2 << std::endl;
 
 	LINE;
 	std::cout << dashes << std::endl;
@@ -168,9 +154,7 @@ int main()
 	LINE;
 	std::cout << dashes << std::endl;
 	List.insertBefore(4, 8);
-	List2.insertBefore("four", "eight");
 	std::cout << List << std::endl;
-	std::cout << List2 << std::endl;
 
 	//Clear remaining Lists
 	LINE;
@@ -184,7 +168,6 @@ int main()
 	// std::cout << "Clearing Lists . . ." << std::endl;
 	// LINE;
 	// List.clearList();
-	// List2.clearList();
 	// std::cout << "List one " << std::endl;
 	// std::cout << "Number of items: " << List.listSize() << std::endl; 
 	// std::cout << "List one ";

@@ -217,16 +217,17 @@ void LinkedList<T>::insertBefore(Node<T>* node, T item)
 {
     Node<T> *newNode = new Node<T>(item);
     Node<T> *prev = node->getPrev();
-    if (node == nullptr)
+    if (head == nullptr)
     {
-        node = newNode;
+        head = tail = newNode;
         return;
     }
-    else if (prev == nullptr) 
+    if (node == head)
     {
         insertFirst(item);
+        return;
     }
-    else
+    else if (node != nullptr)
     {
         newNode->setNext(node);
         node->setPrev(newNode);
@@ -246,9 +247,14 @@ template<class T>
 void LinkedList<T>::insertAfter(Node<T>* node, T item) 
 {
     Node<T> *newNode = new Node<T>(item);
-    if (node == nullptr)
+    if (head == nullptr)
     {
-        node = newNode;
+        head = tail = newNode;
+        return;
+    }
+    if (node == tail)
+    {
+        makeNewNode(item);
         return;
     }
     if (node->getNext() == tail)
