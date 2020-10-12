@@ -16,8 +16,8 @@ public:
     void setData(T); 
     void setNext(Node<T>*);
     void setPrev(Node<T>*);
-    Node<T>* getNext();
-    Node<T>* getPrev();
+    Node<T>* getNext() const;
+    Node<T>* getPrev() const;
 
     template<class S>
     friend std::ostream& operator<<(std::ostream&, const Node<S>&);

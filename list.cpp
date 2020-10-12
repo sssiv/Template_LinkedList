@@ -3,17 +3,28 @@
 #include "list.h"
 
 template<class T>
-typename LinkedList<T>::iterator LinkedList<T>::begin() {return head;}
+typename LinkedList<T>::iterator LinkedList<T>::begin() 
+{
+    iterator temp(head);
+    return temp;
+}
 
 template<class T>
-typename LinkedList<T>::iterator LinkedList<T>::end() {return tail;}
+typename LinkedList<T>::iterator LinkedList<T>::end() 
+{
+    iterator temp;
+    return temp;
+}
 
+// Default Constructor
 template<class T>
 LinkedList<T>::LinkedList() : head(nullptr), tail(nullptr) {}
 
+// T Constructor
 template<class T>
 LinkedList<T>::LinkedList(T input) {}
 
+// Deconstructor
 template<class T>
 LinkedList<T>::~LinkedList() 
 {
@@ -28,6 +39,7 @@ LinkedList<T>::~LinkedList()
     }
 }
 
+// Copy Constructor
 template<class T>
 LinkedList<T>::LinkedList(const LinkedList<T>& List)
 {
@@ -40,6 +52,7 @@ LinkedList<T>::LinkedList(const LinkedList<T>& List)
     this->head = copy.getNext();
 } 
 
+// += Operator Overload
 template<class T>
 LinkedList<T>& LinkedList<T>::operator+=(T data)
 {
@@ -47,6 +60,7 @@ LinkedList<T>& LinkedList<T>::operator+=(T data)
     return *this;
 }
  
+// << Operator Overload
 template<class T>
 std::ostream& operator<<(std::ostream &out, const LinkedList<T> &List)
 {  
@@ -57,9 +71,11 @@ std::ostream& operator<<(std::ostream &out, const LinkedList<T> &List)
     return out;
 }
 
+// List Size
 template<class T>
 int LinkedList<T>::listSize() const
 {
+    if (head == nullptr) return 0;
     Node<T> *temp = head;
     if (temp == nullptr) return 0;
     int count = 1;
@@ -71,9 +87,11 @@ int LinkedList<T>::listSize() const
     return count;
 }
 
+// Is or not Empty
 template<class T>
 bool LinkedList<T>::isEmpty() const {return head == nullptr ? true : false;}
 
+// Make New Node
 template<class T>
 void LinkedList<T>::makeNewNode(T Type)
 {
@@ -94,6 +112,7 @@ void LinkedList<T>::makeNewNode(T Type)
     }
 }
 
+// Public - Insert at head
 template<class T>
 void LinkedList<T>::insertFirst(T Type)
 {
@@ -104,6 +123,7 @@ void LinkedList<T>::insertFirst(T Type)
     head = temp;  
 }
 
+// Search for Node Function
 template<class T>
 Node<T>* LinkedList<T>::findItem(const T& item)
 {
@@ -112,12 +132,15 @@ Node<T>* LinkedList<T>::findItem(const T& item)
     return walker;
 }
 
+// Getter - Head*
 template<class T>
-LinkedList<T>* LinkedList<T>::getHead() {return head;}
+LinkedList<T>* LinkedList<T>::getHead() const {return head;}
 
+// Getter - Tail*
 template<class T>
-LinkedList<T>* LinkedList<T>::getTail() {return tail;}
+LinkedList<T>* LinkedList<T>::getTail() const {return tail;}
 
+// Private - Delete Node
 template<class T>
 void LinkedList<T>::deleteNode(Node<T> *node)
 {
@@ -146,19 +169,10 @@ void LinkedList<T>::deleteNode(Node<T> *node)
         next->setPrev(prev);
         prev->setNext(next);
     }
-    else if (node == head)
-    {
-        head = next;
-        next->setPrev(nullptr);
-    }
-    else if (node == tail)
-    {
-        tail = prev;
-        prev->setNext(nullptr);
-    }
     delete node;
 }
 
+// Private - Delete Head
 template<class T>
 void LinkedList<T>::deleteHead()
 {
@@ -173,6 +187,7 @@ void LinkedList<T>::deleteHead()
     head->setPrev(nullptr);
 }
 
+// Private - Delete Tail 
 template<class T>
 void LinkedList<T>::deleteTail() 
 {
@@ -190,14 +205,16 @@ void LinkedList<T>::deleteTail()
     }
 }
 
+// Public - Delete Node
 template<class T>
 void LinkedList<T>::deleteNode(T item) 
 {
     Node<T> *temp = findItem(item);
-    if (temp != nullptr)
+    if (temp != nullptr) 
         deleteNode(temp);
 }
 
+// Public - Clear List
 template<class T>
 void LinkedList<T>::clearList() 
 {
@@ -212,6 +229,7 @@ void LinkedList<T>::clearList()
     head = tail = nullptr;
 }
 
+// Private - Insert Before Node
 template<class T>
 void LinkedList<T>::insertBefore(Node<T>* node, T item) 
 {
@@ -222,7 +240,7 @@ void LinkedList<T>::insertBefore(Node<T>* node, T item)
         head = tail = newNode;
         return;
     }
-    if (node == head)
+    else if (node == head)
     {
         insertFirst(item);
         return;
@@ -236,6 +254,7 @@ void LinkedList<T>::insertBefore(Node<T>* node, T item)
     }
 }
 
+// Public - Before After Node
 template<class T>
 void LinkedList<T>::insertBefore(T search, T item) 
 {
@@ -243,6 +262,7 @@ void LinkedList<T>::insertBefore(T search, T item)
     insertBefore(ptrNode, item);
 }
 
+// Private - Insert After Node
 template<class T>
 void LinkedList<T>::insertAfter(Node<T>* node, T item) 
 {
@@ -272,6 +292,7 @@ void LinkedList<T>::insertAfter(Node<T>* node, T item)
     }
 }
 
+// Public - Insert After Node
 template<class T>
 void LinkedList<T>::insertAfter(T search, T item) 
 {

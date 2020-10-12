@@ -38,14 +38,11 @@ public:
     void insertFirst(T);
     void insertBefore(T, T);
     void insertAfter(T, T);
-    LinkedList<T>* getHead();
-    LinkedList<T>* getTail();
+    LinkedList<T>* getHead() const;
+    LinkedList<T>* getTail() const;
 
     void deleteNode(T);
     void clearList();
-
-    // template<class S>
-    // friend std::istream& operator>>(std::istream&, const LinkedList<S>&);
 };
 
 #include "list.cpp"

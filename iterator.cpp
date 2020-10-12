@@ -10,12 +10,12 @@ Node_Iterator<T>::Node_Iterator() : current(nullptr) {}
 template<class T>
 Node_Iterator<T>::Node_Iterator(Node_Iterator<T> *node) {current = node;}
 
-//Next
+// Next Node
 template<class T>
 Node_Iterator<T>* Node_Iterator<T>::iterateNext()
 {return this;}
 
-//++ prefix
+// ++ prefix
 template<class T>
 Node_Iterator<T>& Node_Iterator<T>::operator++() 
 {
@@ -23,16 +23,16 @@ Node_Iterator<T>& Node_Iterator<T>::operator++()
     return *this;
 }
 
-//++ postfix
+// ++ postfix
 template<class T>
 Node_Iterator<T> Node_Iterator<T>::operator++(int i) 
 {
     Node_Iterator<T>* previous(current);
     current = current->getNext(); 
-    return previous;
+    return *this;
 }
 
-//-- prefix
+// -- prefix
 template<class T>
 Node_Iterator<T>& Node_Iterator<T>::operator--() 
 {
@@ -40,7 +40,7 @@ Node_Iterator<T>& Node_Iterator<T>::operator--()
     return *this;
 }
 
-//-- postfix
+// -- postfix
 template<class T>
 Node_Iterator<T> Node_Iterator<T>::operator--(int i) 
 {
@@ -50,11 +50,26 @@ Node_Iterator<T> Node_Iterator<T>::operator--(int i)
 }
 
 template<class T>
-Node_Iterator<T>& Node_Iterator<T>::operator+=(T item) {}
+Node_Iterator<T>& Node_Iterator<T>::operator+=(T item) 
+{
+    Node_Iterator<T>* next = current->getNext();
+    current = next->getNext();
+    return *this;
+}
+
+template<class T>
+Node_Iterator<T> Node_Iterator<T>::operator+(T item) {}
+
+template<class T>
+Node_Iterator<T> Node_Iterator<T>::operator-(T item) {}
+
+template<class T>
+Node_Iterator<T>& Node_Iterator<T>::operator=(T item) 
+{return current = current(item);}
 
 template<class T>
 const T& Node_Iterator<T>::operator[](T item) const 
-{return current->getData();}
+{return current(item)->getData();}
 
 template<class T>
 T& Node_Iterator<T>::operator[](T item) 
@@ -70,13 +85,10 @@ bool Node_Iterator<T>::operator==(const Node_Iterator<T> *itr)
 
 //dereferencer
 template<class T>
-T& Node_Iterator<T>::operator*() 
-{return current->getData();}
+T& Node_Iterator<T>::operator*() {return current->getData();}
 
 //dereferencer, Const
 template<class T>
-const T& Node_Iterator<T>::operator*() const
-{return current->getData();}
-
+const T& Node_Iterator<T>::operator*() const {return current->getData();}
 
 #endif    // ITERATOR_CPP_
