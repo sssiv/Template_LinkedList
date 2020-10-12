@@ -12,7 +12,7 @@ typename LinkedList<T>::iterator LinkedList<T>::begin()
 template<class T>
 typename LinkedList<T>::iterator LinkedList<T>::end() 
 {
-    iterator temp;
+    iterator temp(tail);
     return temp;
 }
 

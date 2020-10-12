@@ -38,7 +38,7 @@ int main()
 	std::cout << List << std::endl;
 
 	//Delete Tail
-	{
+	
 	LINE;
 	std::cout << dashes << std::endl;
 	std::cout<<  "|----------------Deleing At Tail-----------------|";
@@ -46,10 +46,10 @@ int main()
 	std::cout << dashes << std::endl;
 	List.deleteNode(5);
 	std::cout << List << std::endl;
-	}
+	
 
 	//Delete Specific Node
-	{
+	
 	LINE;
 	std::cout << dashes << std::endl;
 	std::cout<<  "|-------------Deleting At Particular-------------|";
@@ -57,43 +57,6 @@ int main()
 	std::cout << dashes << std::endl;
 	List.deleteNode(3);
 	std::cout << List << std::endl;
-	}
-
-	// //Clear Copies
-	// {
-	// LINE;
-	// std::cout << dashes << std::endl;
-	// std::cout<<  "|--------------Clearing copied list--------------|";
-	// LINE;
-	// std::cout << dashes << std::endl;
-	// std::cout << copyList << std::endl;
-	// std::cout << copyList2 << std::endl;
-	// LINE;
-	// std::cout << "Clearing copied Lists . . ." << std::endl;
-	// copyList.clearList();
-	// copyList2.clearList();
-	// std::cout << "Number of items: " << copyList.listSize() << std::endl;
-	// std::cout << "List one Copy ";
-	// copyList.isEmpty() ? std::cout << "is empty." << std::endl : std::cout << "is not empty" << std::endl;
-	// LINE;
-	// std::cout << "Number of items: " << copyList2.listSize() << std::endl;
-	// std::cout << "List two copy ";
-	// copyList2.isEmpty() ? std::cout << "is empty." << std::endl : std::cout << "is not empty" << std::endl;
-	// LINE;
-	// std::cout << "Copied Lists has been cleared!" << std::endl;
-	// }
-
-	//List size
-	// {
-	// LINE;
-	// std::cout << dashes << std::endl;
-	// std::cout<<  "|---------------Size of each List----------------|";
-	// LINE;
-	// std::cout << dashes << std::endl;
-	// std::cout << "Number of items: " << List.listSize() << std::endl; 
-	// List.isEmpty() ? std::cout << "is empty." << std::endl : std::cout << "is not empty" << std::endl;
-	// LINE;
-	// }
 
 	LINE;
 	std::cout << dashes << std::endl;
@@ -124,7 +87,7 @@ int main()
 	std::cout << "Clearing Lists . . ." << std::endl;
 	LINE;
 	List.clearList();
-	List.isEmpty() ? std::cout << "List has been cleared!" << std::endl : std::cout << "Error, List failed to clean" << std::endl;
+	List.isEmpty() ? std::cout << "List has been cleared!" << std::endl : std::cout << "Error, List failed to clean!\n" << "Number of items left-over: " << List.listSize() << std::endl;
 	std::cout<< dashes << std::endl;
 	return 0;
 }

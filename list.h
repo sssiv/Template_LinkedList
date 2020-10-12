@@ -27,8 +27,10 @@ public:
     LinkedList(T);
     LinkedList(const LinkedList<T>&);
     ~LinkedList();
+    LinkedList<T>* getHead() const;
+    LinkedList<T>* getTail() const;
+    
     LinkedList<T>& operator+=(T);
-
     template<class S>
     friend std::ostream& operator<<(std::ostream&, const LinkedList<S>&);
 
@@ -38,11 +40,11 @@ public:
     void insertFirst(T);
     void insertBefore(T, T);
     void insertAfter(T, T);
-    LinkedList<T>* getHead() const;
-    LinkedList<T>* getTail() const;
-
     void deleteNode(T);
     void clearList();
+    
+
+    
 };
 
 #include "list.cpp"
