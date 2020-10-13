@@ -29,7 +29,7 @@ public:
     ~LinkedList();
     LinkedList<T>* getHead() const;
     LinkedList<T>* getTail() const;
-    
+
     LinkedList<T>& operator+=(T);
     template<class S>
     friend std::ostream& operator<<(std::ostream&, const LinkedList<S>&);
