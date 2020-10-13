@@ -21,8 +21,8 @@ public:
     
     Node_Iterator<T>& operator+=(T);        //do I need a reference?
 
-    T& operator*();        //dereferencer, modifiable
-    const T& operator*() const;     //const dereferencer, not modifiable 
+    T& operator*();                         //dereferencer, modifiable
+    const T& operator*() const;             //const dereferencer, not modifiable 
     T& operator[](T);
     const T& operator[](T) const;
 

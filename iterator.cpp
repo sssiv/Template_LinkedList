@@ -8,7 +8,7 @@ Node_Iterator<T>::Node_Iterator() : current(nullptr) {}
 
 //Constructor, pointer argument
 template<class T>
-Node_Iterator<T>::Node_Iterator(Node_Iterator<T> *node) {current = node;}
+Node_Iterator<T>::Node_Iterator(Node_Iterator<T>* node) {current = node;}
 
 // Next Node
 template<class T>
@@ -67,17 +67,20 @@ template<class T>
 Node_Iterator<T>& Node_Iterator<T>::operator=(T item) 
 {return current = current(item);}
 
-template<class T>
-const T& Node_Iterator<T>::operator[](T item) const 
-{return current(item)->getData();}
+// template<class T>
+// const T& Node_Iterator<T>::operator[](T item) const 
+// {return current(item)->getData();}
 
 template<class T>
 T& Node_Iterator<T>::operator[](T item) 
-{return current->getData();}
+{
+    return current->getData();
+}
 
 template<class T>
 bool Node_Iterator<T>::operator!=(const Node_Iterator<T> *itr)
-{return itr != itr->current;}
+{ itr != itr->current;
+return true;}
 
 template<class T>
 bool Node_Iterator<T>::operator==(const Node_Iterator<T> *itr)

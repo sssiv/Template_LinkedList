@@ -17,9 +17,9 @@ int main()
 	// std::cout << dashes << std::endl;
 	// std::cout<<  "|------------Iteratoring Through List------------|";
 	// LINE;
-	// LinkedList<int>::iterator itr;
+	// LinkedList<int>::iterator itr, itr2;
 	// std::cout << dashes << std::endl;
-	// for (int i = 1; i <= 5; ++i)
+	// for (int i = 0; i < 5; ++i)
 	// {
 	// 	std::cout << itr[i] << "\t";
 	// }
