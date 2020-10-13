@@ -11,6 +11,8 @@ private:
 public:
     Node_Iterator();
     Node_Iterator(Node_Iterator<T>*);
+    Node_Iterator(const Node_Iterator<T>&);
+    ~Node_Iterator();
 
     Node_Iterator<T>* iterateNext();       //next
 
@@ -23,15 +25,15 @@ public:
 
     T& operator*();                         //dereferencer, modifiable
     const T& operator*() const;             //const dereferencer, not modifiable 
-    T& operator[](T);
+    T& operator[](T&);
     const T& operator[](T) const;
 
     Node_Iterator<T> operator+(T);
     Node_Iterator<T> operator-(T);
     Node_Iterator<T>& operator=(T);
     
-    bool operator !=(const Node_Iterator<T>*);
-    bool operator ==(const Node_Iterator<T>*);
+    bool operator!=(const Node_Iterator<T>*);
+    bool operator==(const Node_Iterator<T>*);
 };
 #include "iterator.cpp"
 #endif    // ITERATOR_H_

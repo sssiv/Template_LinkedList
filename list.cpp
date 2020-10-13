@@ -89,7 +89,7 @@ int LinkedList<T>::listSize() const
 
 // Is or not Empty
 template<class T>
-bool LinkedList<T>::isEmpty() const {return head == nullptr ? true : false;}
+bool LinkedList<T>::isEmpty() const {return head == nullptr;}
 
 // Make New Node
 template<class T>
