@@ -7,7 +7,7 @@ template<class T>
 typename LinkedList<T>::iterator LinkedList<T>::begin() 
 {
     iterator temp;
-    return temp;
+    return temp.getCurrent();
 }
 
  // Iterator

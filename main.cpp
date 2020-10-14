@@ -14,15 +14,16 @@ int main()
 	// std::cout<<  "||-----------____Iteratoring Through List____-----------||";
 	// LINE;
 	LinkedList<int>::iterator itr;
-	// for (int i = 0; i < 5; ++i)
-	// {
-	// 	std::cout << itr[i] << "\t";
-	// }
 	// for (LinkedList<int>::iterator i : List) std::cout << *i << "\t";
 	// LINE;
 	for (itr = List.begin(); itr != List.end(); ++itr)
 	{
 		std::cout << *itr << "\t";
+	}
+	itr = List.begin();
+	for (int i = 0; itr != List.end(); ++itr)
+	{
+		std::cout << itr[i] << "\t";
 	}
 
 	LINE;

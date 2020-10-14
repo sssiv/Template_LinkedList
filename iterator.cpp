@@ -12,7 +12,7 @@ Node_Iterator<T>::Node_Iterator(Node_Iterator<T>* node) {current = node;}
 
 // Copy Constructor
 template<class T>
-Node_Iterator<T>::Node_Iterator(const Node_Iterator<T>* node) {current = node;}
+Node_Iterator<T>::Node_Iterator(const Node_Iterator<T>& node) {current = node;}
 
 // Deconstructor
 template<class T>
@@ -21,6 +21,10 @@ Node_Iterator<T>::~Node_Iterator() {current = nullptr;}
 // Next Node
 template<class T>
 Node_Iterator<T>* Node_Iterator<T>::iterateNext() {return current->getNext();}
+
+// Current Address-Pointer
+template<class T>
+Node<T>* Node_Iterator<T>::getCurrent() {return current;}
 
 // ++ prefix
 template<class T>
@@ -58,16 +62,42 @@ Node_Iterator<T> Node_Iterator<T>::operator--(int i)
 
 // += Overload
 template<class T>
-Node_Iterator<T>& Node_Iterator<T>::operator+=(T item) 
+Node_Iterator<T>& Node_Iterator<T>::operator+=(unsigned int index) 
 {
-    Node_Iterator<T>* next = current->getNext();
-    current = next->getNext();
+    Node<T>* walker = current;
+    int count = 0;
+    while (walker->getNext() != nullptr && count < index)
+    {
+        walker = walker->getNext();
+        ++count;
+    }
+    current = walker;
+    return *this;
+}
+
+// -= Overload
+template<class T>
+Node_Iterator<T>& Node_Iterator<T>::operator-=(unsigned int index) 
+{
+    Node<T>* walker = current;
+    int count = 0;
+    while (walker->getPrev() != nullptr && count < index)
+    {
+        walker = walker->getNext();
+        ++count;
+    }
+    current = walker;
     return *this;
 }
 
 // + Overload
 template<class T>
-Node_Iterator<T> Node_Iterator<T>::operator+(T item) {}
+Node_Iterator<T> Node_Iterator<T>::operator+(const Node_Iterator<T>& itr) 
+{
+    Node_Iterator<T> temp = itr;
+    //temp += 1;
+    return temp;
+}
 
 // - Overload
 template<class T>
@@ -86,7 +116,7 @@ Node_Iterator<T>& Node_Iterator<T>::operator=(T item) {return current = current(
 
 // Bracket overload
 template<class T>
-T& Node_Iterator<T>::operator[](T& item)
+T& Node_Iterator<T>::operator[](unsigned int index)
 {
     Node<T>* node = current;
     while (node != nullptr)
