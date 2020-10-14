@@ -32,7 +32,7 @@ public:
     Node_Iterator<T> operator-(T);
     Node_Iterator<T>& operator=(T);
     
-    bool operator!=(const Node_Iterator<T>*);
+    bool operator!=(const Node_Iterator<T>&);
     bool operator==(const Node_Iterator<T>*);
 };
 #include "iterator.cpp"

@@ -18,4 +18,14 @@ T Queue<T>::pop()
     return item;
 }
 
+template<class T>
+T Queue<T>::front()
+{}
+
+template<class T>
+std::ostream& operator<<(std::ostream& out, const Queue<T>& Q)
+{
+    return out;
+}
+
 #endif    // QUEUE_CPP_

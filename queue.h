@@ -9,11 +9,13 @@ private:
     LinkedList<T> List;
 public:
     T pop();   //remove first in queue
+    T front();  /// returns the first item
     void push(const T&);    //adds item to queue
     bool isEmpty(); 
-    int getSize();
+    int getSize();      
 
-//friend std::ostream& 
+    template<class S>
+    friend std::ostream& operator<<(std::ostream&, const Queue<S>&); 
 };
 
 #include "queue.cpp"

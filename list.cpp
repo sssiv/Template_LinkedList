@@ -2,6 +2,7 @@
 #define LIST_CPP_
 #include "list.h"
 
+// Iterator 
 template<class T>
 typename LinkedList<T>::iterator LinkedList<T>::begin() 
 {
@@ -9,6 +10,7 @@ typename LinkedList<T>::iterator LinkedList<T>::begin()
     return temp;
 }
 
+ // Iterator
 template<class T>
 typename LinkedList<T>::iterator LinkedList<T>::end() 
 {

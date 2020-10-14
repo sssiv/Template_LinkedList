@@ -20,10 +20,10 @@ int main()
 	// }
 	// for (LinkedList<int>::iterator i : List) std::cout << *i << "\t";
 	// LINE;
-	// for (itr = List.begin(); itr != List.end(); ++itr)
-	// {
-	// 	std::cout << *itr << "\t";
-	// }
+	for (itr = List.begin(); itr != List.end(); ++itr)
+	{
+		std::cout << *itr << "\t";
+	}
 
 	LINE;
 	std::cout<<"||-------------____Inserting At Before____--------------||";
