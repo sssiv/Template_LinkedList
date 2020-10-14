@@ -11,7 +11,7 @@ private:
 public:
     Node_Iterator();
     Node_Iterator(Node_Iterator<T>*);
-    Node_Iterator(const Node_Iterator<T>&);
+    Node_Iterator(const Node_Iterator<T>*);
     ~Node_Iterator();
 
     Node_Iterator<T>* iterateNext();       //next

@@ -12,7 +12,7 @@ Node_Iterator<T>::Node_Iterator(Node_Iterator<T>* node) {current = node;}
 
 // Copy Constructor
 template<class T>
-Node_Iterator<T>::Node_Iterator(const Node_Iterator<T>& node) {current = node;}
+Node_Iterator<T>::Node_Iterator(const Node_Iterator<T>* node) {current = node;}
 
 // Deconstructor
 template<class T>

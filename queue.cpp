@@ -13,7 +13,7 @@ int Queue<T>::getSize() {return List.getSize();}
 template<class T>
 T Queue<T>::pop()
 {
-    T item = List.getHead()->data;
+    T item = List.getHead();
     List.deleteHead();
     return item;
 }
