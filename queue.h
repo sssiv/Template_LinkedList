@@ -7,12 +7,16 @@ class Queue
 {
 private:
     LinkedList<T> List;
+    unsigned int used;
 public:
+    Queue();
     T pop();   //remove first in queue
     T front();  /// returns the first item
     void push(const T&);    //adds item to queue
-    bool isEmpty(); 
-    int getSize();      
+    bool empty(); 
+    int getSize();
+
+    Queue<T>& operator=(T);      
 
     template<class S>
     friend std::ostream& operator<<(std::ostream&, const Queue<S>&); 

@@ -13,18 +13,18 @@ int main()
 	// LINE;
 	// std::cout<<  "||-----------____Iteratoring Through List____-----------||";
 	// LINE;
-	LinkedList<int>::iterator itr;
+	// LinkedList<int>::iterator itr;
 	// for (LinkedList<int>::iterator i : List) std::cout << *i << "\t";
 	// LINE;
-	for (itr = List.begin(); itr != List.end(); ++itr)
-	{
-		std::cout << *itr << "\t";
-	}
-	itr = List.begin();
-	for (int i = 0; itr != List.end(); ++itr)
-	{
-		std::cout << itr[i] << "\t";
-	}
+	// for (itr = List.begin(); itr != List.end(); ++itr)
+	// {
+	// 	std::cout << *itr << "\t";
+	// }
+	// itr = List.begin();
+	// for (int i = 0; itr != List.end(); ++itr)
+	// {
+	// 	std::cout << itr[i] << "\t";
+	// }
 
 	LINE;
 	std::cout<<"||-------------____Inserting At Before____--------------||";

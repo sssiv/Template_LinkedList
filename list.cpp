@@ -2,21 +2,21 @@
 #define LIST_CPP_
 #include "list.h"
 
-// Iterator 
-template<class T>
-typename LinkedList<T>::iterator LinkedList<T>::begin() 
-{
-    iterator temp;
-    return temp.getCurrent();
-}
+// // Iterator 
+// template<class T>
+// typename LinkedList<T>::iterator LinkedList<T>::begin() 
+// {
+//     iterator temp;
+//     return temp;
+// }
 
- // Iterator
-template<class T>
-typename LinkedList<T>::iterator LinkedList<T>::end() 
-{
-    iterator temp;
-    return temp;
-}
+//  // Iterator
+// template<class T>
+// typename LinkedList<T>::iterator LinkedList<T>::end() 
+// {
+//     iterator temp;
+//     return temp;
+// }
 
 // Default Constructor
 template<class T>

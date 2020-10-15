@@ -116,7 +116,7 @@ Node_Iterator<T>& Node_Iterator<T>::operator=(T item) {return current = current(
 
 // Bracket overload
 template<class T>
-T& Node_Iterator<T>::operator[](unsigned int index)
+T& Node_Iterator<T>::operator[](unsigned int item)
 {
     Node<T>* node = current;
     while (node != nullptr)
