@@ -4,7 +4,10 @@ template<class T>
 Stack<T>::Stack() : used(0) {}
 
 template<class T>
-void Stack<T>::pop() {}
+void Stack<T>::pop() 
+{
+    
+}
 
 template<class T>
 void push (const T& item) {}

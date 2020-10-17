@@ -1,6 +1,5 @@
 
 #include "list.h"
-#include <stack>
 
 template<class T>
 class Stack

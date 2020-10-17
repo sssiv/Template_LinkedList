@@ -6,13 +6,22 @@ template<class T>
 Queue<T>::Queue() : used(0) {}
 
 template<class T>
-void Queue<T>::push(const T& item) {List.makeNewNode(item);}
+Queue<T>::~Queue() {}
 
 template<class T>
-bool Queue<T>::empty() {return List.isEmpty();}
+void Queue<T>::push(const T& item) 
+{
+    if (used >= SIZE)
+        return;
+    List[used].makeNewNode(item); 
+    ++used;
+}
 
 template<class T>
-int Queue<T>::getSize() {return List.getSize();}
+bool Queue<T>::empty() {return used == 0;}
+
+template<class T>
+int Queue<T>::getSize() {return used;}
 
 template<class T>
 T Queue<T>::pop()
@@ -25,11 +34,14 @@ template<class T>
 T Queue<T>::front()
 {}
 
-
+template<class T>
+Queue<T>& Queue<T>::operator=(T item) 
+{}
 
 template<class T>
 std::ostream& operator<<(std::ostream& out, const Queue<T>& Q)
 {
+    out << Q.List << "\t";
     return out;
 }
 

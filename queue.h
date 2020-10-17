@@ -6,10 +6,12 @@ template<class T>
 class Queue 
 {
 private:
-    LinkedList<T> List;
+    static const int SIZE = 100;
+    LinkedList<T> List[SIZE];
     unsigned int used;
 public:
     Queue();
+    ~Queue();
     T pop();   //remove first in queue
     T front();  /// returns the first item
     void push(const T&);    //adds item to queue

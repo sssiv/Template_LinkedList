@@ -4,7 +4,6 @@
 #include <string>
 #include "node.h"
 #include "iterator.h"
-//#include "queue.h"
 #define LINE std::cout << std::endl
 
 template<class T>
