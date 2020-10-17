@@ -13,6 +13,9 @@ public:
     void push(const T&);
     void pop();
     T top() const;
+    T seek();
     int size() const;
     bool isEmpty() const;
+
+    Stack<T>& operator=(T);
 };

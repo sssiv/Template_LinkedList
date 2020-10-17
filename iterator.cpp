@@ -8,11 +8,11 @@ Node_Iterator<T>::Node_Iterator() : current(nullptr) {}
 
 // Constructor, pointer argument
 template<class T>
-Node_Iterator<T>::Node_Iterator(Node_Iterator<T>* node) {current = node;}
+Node_Iterator<T>::Node_Iterator(Node<T>* node) {current = node;}
 
 // Copy Constructor
 template<class T>
-Node_Iterator<T>::Node_Iterator(const Node_Iterator<T>& node) {current = node;}
+Node_Iterator<T>::Node_Iterator(const Node<T>& node) {current = node;}
 
 // Deconstructor
 template<class T>
@@ -30,7 +30,10 @@ Node<T>* Node_Iterator<T>::getCurrent() {return current;}
 template<class T>
 Node_Iterator<T>& Node_Iterator<T>::operator++() 
 {
-    current = current->getNext();
+    if (current != nullptr)
+    {
+        current = current->getNext();  
+    } 
     return *this;
 }
 
@@ -95,7 +98,6 @@ template<class T>
 Node_Iterator<T> Node_Iterator<T>::operator+(const Node_Iterator<T>& itr) 
 {
     Node_Iterator<T> temp = itr;
-    //temp += 1;
     return temp;
 }
 
@@ -115,18 +117,19 @@ Node_Iterator<T>& Node_Iterator<T>::operator=(T item) {return current = current(
 // }
 
 // Bracket overload
-template<class T>
-T& Node_Iterator<T>::operator[](unsigned int item)
-{
-    Node<T>* node = current;
-    while (node != nullptr)
-    {
-        node->getData() == item ? item : node = node->getNext();
-    }
-
-    item = node->getData();
-    return item; //find node
-}
+// template<class T>
+// const T& Node_Iterator<T>::operator[](unsigned int item)
+// {
+//     Node<T>* node = current;
+//     while (node != nullptr)
+//     {
+//         if (node->getData() == item)
+//             return item;
+//         else node = node->getNext();
+//     }
+//     item = node->getData();
+//     return item; //find node
+// }
 
 // != Overload
 template<class T>
@@ -143,11 +146,7 @@ bool Node_Iterator<T>::operator==(const Node_Iterator<T> *itr)
 }
 
 // dereferencer
-//template<class T>
-//T& Node_Iterator<T>::operator*() {return current->getData();}
-
-// Const dereferencer
-//template<class T>
-//const T& Node_Iterator<T>::operator*() const {return current->getData();}
+template<class T>
+const T Node_Iterator<T>::operator*() const {return current->getData();}
 
 #endif    // ITERATOR_CPP_

@@ -10,21 +10,16 @@ int main()
 	LINE;
 	std::cout << List << std::endl;
 
-	// LINE;
-	// std::cout<<  "||-----------____Iteratoring Through List____-----------||";
-	// LINE;
-	// LinkedList<int>::iterator itr;
-	// for (LinkedList<int>::iterator i : List) std::cout << *i << "\t";
-	// LINE;
-	// for (itr = List.begin(); itr != List.end(); ++itr)
-	// {
-	// 	std::cout << *itr << "\t";
-	// }
-	// itr = List.begin();
-	// for (int i = 0; itr != List.end(); ++itr)
-	// {
-	// 	std::cout << itr[i] << "\t";
-	// }
+	LINE;
+	std::cout<<  "||-----------____Iteratoring Through List____-----------||";
+	LINE;
+	LinkedList<int>::iterator itr;
+	for (auto i : List) std::cout << i << "\t";
+	LINE;
+	for (itr = List.begin(); itr != List.end(); ++itr)
+	{
+		std::cout << *itr << "\t";
+	}
 
 	LINE;
 	std::cout<<"||-------------____Inserting At Before____--------------||";
