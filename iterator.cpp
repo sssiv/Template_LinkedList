@@ -93,28 +93,9 @@ Node_Iterator<T>& Node_Iterator<T>::operator-=(unsigned int index)
     return *this;
 }
 
-// + Overload
-template<class T>
-Node_Iterator<T> Node_Iterator<T>::operator+(const Node_Iterator<T>& itr) 
-{
-    Node_Iterator<T> temp = itr;
-    return temp;
-}
-
-// - Overload
-template<class T>
-Node_Iterator<T> Node_Iterator<T>::operator-(T item) {}
-
 // = Assignment Operator
 template<class T>
 Node_Iterator<T>& Node_Iterator<T>::operator=(T item) {return current = current(item);}
-
-// Const Bracket Overload 
-// template<class T>
-// const T& Node_Iterator<T>::operator[](T item) const 
-// {
-//     return current(item)->getData();
-// }
 
 // Bracket overload
 // template<class T>

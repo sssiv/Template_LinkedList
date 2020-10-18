@@ -28,8 +28,6 @@ public:
     const T operator*() const;    //Only seems to work w/o a &
     //const T& operator[](unsigned int);
 
-    Node_Iterator<T> operator+(const Node_Iterator<T>& itr);
-    Node_Iterator<T> operator-(T);
     Node_Iterator<T>& operator=(T);
     
     bool operator!=(const Node_Iterator<T>&);

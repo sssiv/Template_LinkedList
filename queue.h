@@ -12,9 +12,9 @@ private:
 public:
     Queue();
     ~Queue();
-    T pop();   //remove first in queue
-    T front();  /// returns the first item
-    void push(const T&);    //adds item to queue
+    T pop();                // remove first in queue
+    T front();              // returns the first item
+    void push(const T&);    // adds item to queue
     bool empty(); 
     int getSize();
 
