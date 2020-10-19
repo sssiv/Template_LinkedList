@@ -1,41 +1,49 @@
 #include "list.h"
 #include "queue.h"
+//#include "stack.h"
 
 int main()
 {
 	LinkedList<int> List;
-	for (int i = 1; i < 9; ++i) List.makeNewNode(i);	
-	
-	LINE;
-	std::cout<<  "||-------------____Displaying All nodes____-------------||";
-	LINE;
-	std::cout << List << std::endl;
-
-	LINE;
-	std::cout<<  "||-----------____Iteratoring Through List____-----------||";
-	LINE;
-	LinkedList<int>::iterator itr;
-	for (auto i : List) std::cout << i << "\t";
-	LINE;
-	for (itr = List.begin(); itr != List.end(); ++itr)
+	LinkedList<char> List2;
+	//Stack<LinkedList<int>> Stack;
+	//Stack.push(1234);
+	for (int i = 1; i < 9; ++i)
 	{
-		std::cout << *itr << "\t";
+		List.makeNewNode(i);
+		List2.makeNewNode('a' + i - 1);
+	}	
+	
+	C_END;
+	std::cout<<  "||-------------____Displaying All nodes____-------------||";
+	C_END;
+	std::cout << List << std::endl;
+	C_END;
+	std::cout << List2 << std::endl;
+
+	C_END;
+	std::cout<<  "||-----------____Iteratoring Through List____-----------||";
+	C_END;
+	for (int i : List) std::cout << i << "\t";
+	C_END;
+	for (LinkedList<char>::iterator c_itr = List2.begin(); c_itr != List2.end(); ++c_itr)
+	{
+		std::cout << *c_itr << "\t";
 	}
 
-	LINE;
-	std::cout<<"||-------------____Inserting At Before____--------------||";
-	LINE;
-	List.insertBefore(7, 0);
-	std::cout << List << std::endl;
-
-	LINE;
+	C_END;
 	std::cout<<  "||------------____Clear all items in list____-----------||";
-	LINE;
+	C_END;
 	std::cout << List << std::endl;
-	LINE;
+	C_END;
 	std::cout << "Clearing Lists . . ." << std::endl;
-	LINE;
+	C_END;
 	List.clearList();
-	List.isEmpty() ? std::cout << "List has been cleared!" << std::endl : std::cout << "Error, List failed to clean!\n" << "Number of items left-over: " << List.listSize() << std::endl;
+
+	List.isEmpty() ? std::cout << "List has been cleared!" << std::endl 
+	: 
+	std::cout << "Error, List failed to clean!\n" << 
+	"Number of items left-over: " << List.listSize() << std::endl;
+
 	return 0;
 }

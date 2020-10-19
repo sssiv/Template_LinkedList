@@ -4,7 +4,7 @@
 #include <string>
 #include "node.h"
 #include "iterator.h"
-#define LINE std::cout << std::endl
+#define C_END std::cout << std::endl
 
 template<class T>
 class LinkedList 

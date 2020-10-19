@@ -6,7 +6,7 @@ template<class T>
 class Stack
 {
 private:
-    Node<T>* top;
+    LinkedList<T> List;
     T data;
     unsigned int used;
 public:
@@ -18,7 +18,7 @@ public:
     int size() const;       // Returns stack size
     bool isEmpty() const;   // Returns if stack is empty
 
-    Stack<T>& operator=(T);
+    Stack<T>& operator=(T); // LinkedList Param?
 };
 #include "stack.cpp"
 #endif    // STACK_H_
