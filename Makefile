@@ -4,7 +4,7 @@ CXXFLAGS = -O2 -std=c++17
 #-------------------------------------------------------------------------------
 
 SOURCES_CPP = $(shell find -type f -name '.cpp')
-OBJECTS = main.o list.o queue.o node.o iterator.o
+OBJECTS = main.o list.o queue.o node.o iterator.o queens.o
 
 #-------------------------------------------------------------------------------
 

@@ -121,10 +121,7 @@ bool Node_Iterator<T>::operator!=(const Node_Iterator<T> &itr)
 
 // == Overload
 template<class T>
-bool Node_Iterator<T>::operator==(const Node_Iterator<T> *itr)
-{
-    return current == itr;
-}
+bool Node_Iterator<T>::operator==(const Node_Iterator<T> *itr) {return current == itr;}
 
 // dereferencer
 template<class T>

@@ -34,4 +34,4 @@ public:
     bool operator==(const Node_Iterator<T>*);
 };
 #include "iterator.cpp"
-#endif    // ITERATOR_H_
+#endif    // ITERATOR_H
