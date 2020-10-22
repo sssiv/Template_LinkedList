@@ -136,11 +136,11 @@ Node<T>* LinkedList<T>::findItem(const T& item)
 
 // Getter - Head*
 template<class T>
-LinkedList<T>* LinkedList<T>::getHead() const {return head;}
+Node<T>* LinkedList<T>::getHead() const {return head;}
 
 // Getter - Tail*
 template<class T>
-LinkedList<T>* LinkedList<T>::getTail() const {return tail;}
+Node<T>* LinkedList<T>::getTail() const {return tail;}
 
 // Private - Delete Node
 template<class T>

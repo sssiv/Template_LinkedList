@@ -12,10 +12,12 @@ private:
 public:
     Node();
     Node(T);
-    T getData();
+    
     void setData(T); 
     void setNext(Node<T>*);
     void setPrev(Node<T>*);
+    
+    T getData() const;
     Node<T>* getNext() const;
     Node<T>* getPrev() const;
 

@@ -4,7 +4,9 @@
 #include <string>
 #include "node.h"
 #include "iterator.h"
-#define C_END std::cout << std::endl
+#define NEW_LINE std::cout << std::endl
+#define PAUSE system("pause")
+#define CLEAR system("clear")
 
 template<class T>
 class LinkedList 
@@ -27,8 +29,8 @@ public:
     LinkedList(T);
     LinkedList(const LinkedList<T>&);
     ~LinkedList();
-    LinkedList<T>* getHead() const;
-    LinkedList<T>* getTail() const;
+    Node<T>* getHead() const;
+    Node<T>* getTail() const;
 
     LinkedList<T>& operator+=(T);
     template<class S>

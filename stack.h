@@ -19,6 +19,9 @@ public:
     bool isEmpty() const;   // Returns if stack is empty
 
     Stack<T>& operator=(T); // LinkedList Param?
+
+template<class S>
+friend std::ostream& operator<<(std::ostream&, const Stack<S>&);
 };
 #include "stack.cpp"
 #endif    // STACK_H_

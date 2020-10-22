@@ -23,7 +23,7 @@ bool Queens::setQueens(int columIndex)
     for (int rowIndex = 0; rowIndex < _numOfQueens; ++rowIndex)
     {
         if (validPlacement(rowIndex, columIndex))
-        {   // Valid Placement set 
+        {   // Valid Placement is set 
             chessTable[rowIndex][columIndex] = true;
             if (setQueens(columIndex + 1)) // <- recursive
                 return true;
@@ -58,7 +58,7 @@ bool Queens::validPlacement(int row, int col) const
 // << operator overload
 std::ostream& operator<<(std::ostream &out, const Queens &Q)
 {
-   
+    out << std::endl;
     for (int i = 0; i < Q._numOfQueens; ++i)
     {
         for (int j = 0; j < Q._numOfQueens; ++j)

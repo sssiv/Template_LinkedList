@@ -16,7 +16,7 @@ void Node<T>::setData(T input) {data = input;}
 
 // Getter - Data
 template<class T>
-T Node<T>::getData() {return data;}
+T Node<T>::getData() const {return data;}
 
 // Setter - Next*
 template<class T>
