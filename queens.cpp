@@ -1,7 +1,7 @@
 #include "queens.h"
 
 // Default Constructor
-Queens::Queens() : _numOfQueens(0) {}
+Queens::Queens() : _numOfQueens(0), chessTable(nullptr) {}
 
 // int param Constructor
 Queens::Queens(int queens) : _numOfQueens(queens) 

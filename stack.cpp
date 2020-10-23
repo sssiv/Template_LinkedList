@@ -13,20 +13,14 @@ void Stack<T>::pop()
         used = 0;
         return;
     }
-    Node<T>* node = List.getTail();
-    T value = node->getData();
-    List.deleteNode(node);
-    used != 0 ? --used : used = 0;  // That looks sexy
+    List.deleteNode(List.getTail());
 }
 
 // Push - Adds item to top
 template<class T>
 void Stack<T>::push(const T& item) 
 {
-    Node<T>* temp = List.getTail();
     List.makeNewNode(item);
-    temp->setPrev(List.getTail());
-    temp->setNext(nullptr);
     ++used;
 }
 
