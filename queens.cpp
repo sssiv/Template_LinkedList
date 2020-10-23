@@ -6,13 +6,23 @@ Queens::Queens() : _numOfQueens(0) {}
 // int param Constructor
 Queens::Queens(int queens) : _numOfQueens(queens) 
 {
-    chessTable.resize(_numOfQueens);
-    for (auto &v : chessTable) v.resize(_numOfQueens);
+    chessTable = new bool*[_numOfQueens];
+    for (int i = 0; i < _numOfQueens; ++i)
+    {
+        chessTable[i] = new bool[_numOfQueens];
+        for (int j = 0; j < _numOfQueens; ++j)
+            chessTable[i][j] = false;
+    }
     setQueens(0);   // Set at 0 to start at the beginning 
 }
 
 // Deconstructor
-Queens::~Queens() {for (auto &A : chessTable) std::fill(A.begin(), A.end(), false);}
+Queens::~Queens()
+{
+    for (int i = 0; i < _numOfQueens; ++i)
+        delete [] chessTable;
+    delete [] chessTable;
+}
 
 // Returns true is Queen is placed
 bool Queens::setQueens(int columIndex) 

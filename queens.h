@@ -1,7 +1,6 @@
 #ifndef QUEENS_H_
 #define QUEENS_H_
 #include <iostream>
-#include <vector>
 
 class Queens
 {
@@ -11,7 +10,7 @@ public:
     ~Queens();
 
 private:
-    std::vector<std::vector<bool>> chessTable;
+    bool** chessTable;
     unsigned int _numOfQueens;
     bool setQueens(int);
     bool validPlacement(int, int) const;
