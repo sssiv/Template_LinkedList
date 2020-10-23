@@ -11,9 +11,10 @@ private:
     unsigned int used;
 public:
     Stack();
+    ~Stack();
     void push(const T&);    // Adds to top
     void pop();             // Deletes top
-    T top() const;          // Returns Top
+    const T top() const;    // Returns Top
     T seek();               // Returns item
     int size() const;       // Returns stack size
     bool isEmpty() const;   // Returns if stack is empty

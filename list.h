@@ -44,7 +44,6 @@ public:
     void insertAfter(T, T);
     void deleteNode(T);
     void clearList();
-      
 };
 
 #include "list.cpp"

@@ -4,6 +4,10 @@
 template<class T>
 Stack<T>::Stack() : used(0) {}
 
+// Deconstructor 
+template<class T>
+Stack<T>::~Stack() {}
+
 // Pop - Deletes Top
 template<class T>
 void Stack<T>::pop() 
@@ -26,7 +30,7 @@ void Stack<T>::push(const T& item)
 
 // Top - Returns whats at the end of the Linked List
 template<class T>
-T Stack<T>::top() const {return List.getTail()->getData();} 
+const T Stack<T>::top() const {return List.getTail()->getData();} 
 
 // size - How many Lists are in the Stack
 template<class T>
@@ -44,7 +48,6 @@ Stack<T>& Stack<T>::operator=(T item) {data = item;}
 template<class T>
 std::ostream& operator<<(std::ostream& out, const Stack<T>& stack)
 {
-    out << stack.top() << "\t";
-    out << std::endl;
+    out << stack.top() << std::endl;
     return out;
 }
