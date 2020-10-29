@@ -24,7 +24,7 @@ LinkedList<T>::LinkedList() : head(nullptr), tail(nullptr) {}
 
 // T Constructor
 template<class T>
-LinkedList<T>::LinkedList(T input) {}
+LinkedList<T>::LinkedList(T input) {makeNewNode(input);}
 
 // Deconstructor
 template<class T>
@@ -77,9 +77,8 @@ std::ostream& operator<<(std::ostream &out, const LinkedList<T> &List)
 template<class T>
 int LinkedList<T>::listSize() const
 {
-    if (head == nullptr) return 0;
+    if (head == nullptr || tail == nullptr) return 0;
     Node<T> *temp = head;
-    if (temp == nullptr) return 0;
     int count = 1;
     while (temp->getNext() != nullptr)
     {

@@ -7,8 +7,7 @@ class Stack
 {
 private:
     LinkedList<T> List;
-    T data;
-    unsigned int used;
+    size_t used;
 public:
     Stack();
     ~Stack();

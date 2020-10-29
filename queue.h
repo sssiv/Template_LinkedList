@@ -6,19 +6,19 @@ template<class T>
 class Queue 
 {
 private:
-    static const int SIZE = 100;
-    LinkedList<T> List[SIZE];
-    unsigned int used;
+    LinkedList<T> List;
+    size_t used;
 public:
     Queue();
     ~Queue();
-    T pop();                // remove first in queue
-    T front();              // returns the first item
+    T seek(int);
+    void pop(T);            // remove first in queue
+    T front() const;        // returns the first item
     void push(const T&);    // adds item to queue
     bool empty(); 
-    int getSize();
+    int getSize() const;
 
-    Queue<T>& operator=(T);      
+    Queue<T>& operator=(const Queue<T>&);      
 
     template<class S>
     friend std::ostream& operator<<(std::ostream&, const Queue<S>&); 

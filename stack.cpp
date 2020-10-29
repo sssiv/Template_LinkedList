@@ -1,3 +1,5 @@
+#ifndef STACK_CPP_
+#define STACK_CPP_
 #include "stack.h"
 
 // Default Constructor
@@ -42,7 +44,7 @@ bool Stack<T>::isEmpty() const {return used == 0;}
 
 // = Operator Overload, Assignment  
 template<class T>
-Stack<T>& Stack<T>::operator=(T item) {data = item;}
+Stack<T>& Stack<T>::operator=(T item) {}
 
 // << Operator Overload, output
 template<class T>
@@ -51,3 +53,6 @@ std::ostream& operator<<(std::ostream& out, const Stack<T>& stack)
     out << stack.top() << std::endl;
     return out;
 }
+
+
+#endif    // STACK_CPP_
