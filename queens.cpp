@@ -1,3 +1,5 @@
+#ifndef QUEENS_CPP_
+#define QUEENS_CPP_
 #include "queens.h"
 
 // Default Constructor
@@ -79,3 +81,5 @@ std::ostream& operator<<(std::ostream &out, const Queens &Q)
     }
     return out;
 }
+
+#endif    // QUEENS_CPP_

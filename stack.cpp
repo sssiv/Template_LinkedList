@@ -54,5 +54,4 @@ std::ostream& operator<<(std::ostream& out, const Stack<T>& stack)
     return out;
 }
 
-
 #endif    // STACK_CPP_
