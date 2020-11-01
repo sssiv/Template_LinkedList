@@ -1,10 +1,13 @@
 CXX = g++
 CXXFLAGS = -O2 -std=c++17
 
+INCLUDE = -IC:\\SFML-2.5.1\\include -DSFML_STATIC
+LIBS = -LC:\\SFML-2.5.1\\lib -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lwinmm -lgdi32 -lfreetype -lopengl32
+
 #-------------------------------------------------------------------------------
 
-SOURCES_CPP = $(shell find -type f -name "*.cpp")
-OBJECTS = $(SOURCES_CPP:.cpp=.o)
+SOURCES_CPP = $(shell find -type f -name "*.cpp") #$(shell find -type f -name '.cpp')
+OBJECTS = $(SOURCES_CPP:.cpp=.o) #main.o node.o list.o stack.o queue.o iterator.o queens.o
 
 #-------------------------------------------------------------------------------
 
@@ -17,12 +20,12 @@ TARGET = m
 	$(CC) $(CFLAGS) -c $< -o $@
 
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $< -o $@
 
 #-------------------------------------------------------------------------------
 
 $(TARGET): $(OBJECTS)
-	$(CXX) $(OBJECTS) -o $@
+	$(CXX) $(OBJECTS) $(LIBS) -o $@
 
 #-------------------------------------------------------------------------------
 
