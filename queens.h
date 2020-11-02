@@ -1,3 +1,6 @@
+//
+// Created by SamSS
+//
 #ifndef QUEENS_H_
 #define QUEENS_H_
 #include <iostream>
@@ -8,7 +11,7 @@ public:
     Queens();
     Queens(int);
     ~Queens();
-
+    // check spot
 private:
     bool** chessTable;
     unsigned int _numOfQueens;

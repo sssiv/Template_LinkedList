@@ -1,3 +1,6 @@
+//
+// Created by SamSS
+//
 #ifndef ITERATOR_CPP_
 #define ITERATOR_CPP_
 #include "iterator.h"

@@ -1,3 +1,6 @@
+//
+// Created by SamSS
+//
 #ifndef LIST_CPP_
 #define LIST_CPP_
 #include "list.h"

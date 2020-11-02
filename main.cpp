@@ -1,9 +1,13 @@
+//
+// Created by SamSS
+//
 #include "list.h"
 #include "queue.h"
 #include "queens.h"
 #include "stack.h"
 #include "chessboard.h"
 
+// std::cout NQueens
 void printQueens()
 {
 	Queens problem1(20);
@@ -22,6 +26,7 @@ void printQueens()
 	CLEAR;
 }
 
+// SFML NQueens
 void displayBoard()
 {
 	Board board;

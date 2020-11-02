@@ -1,3 +1,6 @@
+//
+// Created by SamSS
+//
 #ifndef QUEENS_CPP_
 #define QUEENS_CPP_
 #include "queens.h"

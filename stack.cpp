@@ -1,3 +1,6 @@
+//
+// Created by SamSS
+//
 #ifndef STACK_CPP_
 #define STACK_CPP_
 #include "stack.h"

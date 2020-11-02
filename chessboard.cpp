@@ -1,23 +1,33 @@
 //
-// Created by SamSS on 9/10/2020.
+// Created by SamSS
 //
 #include "chessboard.h"
 #include "queens.h"
 #include <iostream>
 
+// Default Constructor
 Board::Board()
 {
     _row = _column = 0;
+
     board.setSize({80.f, 80.f});
     board.setFillColor(sf::Color::Red);
     board.setOutlineColor(sf::Color::White);
-    board.setOutlineThickness(5.f);
+    board.setOutlineThickness(2.f);
     board.setPosition({50.f, 50.f});
+
     blackQueen.loadFromFile("BlackQueen.png");
     whiteQueen.loadFromFile("WhiteQueen.png");
+    sprite_blackQueen.setScale(0.1, 0.1);
+    sprite_whiteQueen.setScale(0.1, 0.1);
+    sprite_blackQueen.setPosition(25.f, 25.f);
+    sprite_whiteQueen.setPosition(25.f, 25.f);
+    sprite_blackQueen.setTexture(blackQueen);
+    sprite_whiteQueen.setTexture(whiteQueen);
 }
 
-sf::RectangleShape **Board::createBoard(int row, int column)
+// Initializes Dynamic (board) Array
+sf::RectangleShape **Board::initializeBoard(int row, int column)
 {
     row = _row;
     column = _column;
@@ -29,62 +39,56 @@ sf::RectangleShape **Board::createBoard(int row, int column)
     return ptr;
 }
 
-sf::RectangleShape Board::createCell(float x, float y, bool color)
+// Make Square
+sf::RectangleShape Board::makeCell(float x, float y, int row_col)
 {
-    sf::RectangleShape redSquare;
-    sf::RectangleShape blueSquare;
-    sf::RectangleShape temp;
-
-    redSquare.setFillColor(sf::Color::Red);
-    redSquare.setSize({80.f, 80.f});
-    redSquare.setOutlineColor(sf::Color::White);
-    redSquare.setOutlineThickness(5.f);
-    redSquare.setPosition(x, y);
-    
-    blueSquare.setSize({80.f, 80.f});
-    blueSquare.setFillColor(sf::Color::Blue);
-    blueSquare.setOutlineColor(sf::Color::White);
-    blueSquare.setOutlineThickness(5.f);
-    blueSquare.setPosition(x, y);
-
-    temp.setSize({80.f, 80.f});
-    temp.setFillColor(sf::Color::Red);
-    temp.setOutlineColor(sf::Color::White);
-    temp.setOutlineThickness(5.f);
-    temp.setPosition(x, y);
-    if (color) return redSquare;
-    return blueSquare;
+    sf::RectangleShape square;
+    if (row_col % 2 == 0)
+    {
+        sf::RectangleShape redSquare;
+        redSquare.setFillColor(sf::Color::Red);
+        redSquare.setSize({80.f, 80.f});
+        redSquare.setOutlineColor(sf::Color::White);
+        redSquare.setOutlineThickness(5.f);
+        redSquare.setPosition(x, y);
+        square = redSquare;
+    }
+    else
+    {
+        sf::RectangleShape blackSquare; 
+        blackSquare.setSize({80.f, 80.f});
+        blackSquare.setFillColor(sf::Color::Black);
+        blackSquare.setOutlineColor(sf::Color::Red);
+        blackSquare.setOutlineThickness(5.f);
+        blackSquare.setPosition(x, y);
+        square = blackSquare;
+    }
+    return square;
 }
 
+// Window Executable - Display Board
 void Board::draw(sf::RenderTarget &window, sf::RenderStates states) const
 {
     for (int i = 0; i < _row; ++i)
-        for (int j = 0; j < _column; ++j)
-            window.draw(ptr[i][j], states);
-}
-
-void Board::makeBoard(float row, float column)
-{
-    ptr = createBoard(row, column);   
-    for (int i = 0; i < _row; ++i)
     {
-        bool color = true;   
         for (int j = 0; j < _column; ++j)
         {
-            if (color)
-            {
-                color = false;
-                ptr[i][j] = createCell(90 * i, 90 * j, color);
-            }
-            else if (!color)
-            {
-                color = true;
-                ptr[i][j] = createCell(90 * i, 90 * j, color);
-            }
+            window.draw(ptr[i][j], states);
+            window.draw(sprite_blackQueen, states);
         }
     }
 }
 
+// Public - Create Board
+void Board::makeBoard(float row, float column)
+{
+    ptr = initializeBoard(row, column);  
+    for (int i = 0; i < _row; ++i)
+        for (int j = 0; j < _column; ++j)
+            ptr[i][j] = makeCell(90 * i, 90 * j, i + j);
+}
+
+// Key-Presses or Other Action Things
 void Board::addEvent(sf::Keyboard::Key keyPressed)
 {
     if (keyPressed == sf::Keyboard::Up)
@@ -105,6 +109,7 @@ void Board::addEvent(sf::Keyboard::Key keyPressed)
     }  
 }
 
+// Deconstructor
 Board::~Board()
 {
     for (int i = 0; i < _row; ++i)

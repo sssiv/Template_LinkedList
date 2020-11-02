@@ -1,3 +1,6 @@
+//
+// Created by SamSS
+//
 #ifndef QUEUE_CPP_
 #define QUEUE_CPP_
 #include "queue.h"
