@@ -6,10 +6,8 @@
 #include <iostream>
 
 // Default Constructor
-Board::Board()
+Board::Board() : ptr(nullptr), _row(0), _column(0)
 {
-    _row = _column = 0;
-
     board.setSize({80.f, 80.f});
     board.setFillColor(sf::Color::Red);
     board.setOutlineColor(sf::Color::White);
