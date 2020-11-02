@@ -4,22 +4,25 @@
 #ifndef CHESSBOARD_H_
 #define CHESSBOARD_H_
 #include <SFML/Graphics.hpp>
+#include "queens.h"
 
-class Grid: public sf::Drawable, public sf::Transformable
+class Board: public sf::Drawable, public sf::Transformable
 {
 private:
-    sf::RectangleShape rectangle;
+    Queens queens;
+    sf::RectangleShape createCell(float, float, bool);
+    sf::RectangleShape **createBoard(int, int);  
+    sf::RectangleShape board;
     sf::RectangleShape **ptr;
+    sf::Texture blackQueen, whiteQueen;
     int _row, _column;
 
 public:
-    Grid();
-    sf::RectangleShape **createArray(int, int);
-    sf::RectangleShape newRectangleShape(float, float);
+    Board();
     void draw(sf::RenderTarget&, sf::RenderStates) const;
-    void fillArray(float, float);
+    void makeBoard(float, float);
     void addEvent(sf::Keyboard::Key);
-    ~Grid();
+    ~Board();
 };
 
 #endif //CHESSBOARD_H_

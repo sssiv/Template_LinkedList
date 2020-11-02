@@ -2,21 +2,22 @@
 // Created by SamSS on 9/10/2020.
 //
 #include "chessboard.h"
+#include "queens.h"
 #include <iostream>
-#include <random>
-//#include <algorithm>
 
-Grid::Grid()
+Board::Board()
 {
     _row = _column = 0;
-    rectangle.setSize({200.f, 200.f});
-    rectangle.setFillColor(sf::Color::Blue);
-    rectangle.setOutlineColor(sf::Color::White);
-    rectangle.setOutlineThickness(10.f);
-    rectangle.setPosition({50.f, 50.f});
+    board.setSize({80.f, 80.f});
+    board.setFillColor(sf::Color::Red);
+    board.setOutlineColor(sf::Color::White);
+    board.setOutlineThickness(5.f);
+    board.setPosition({50.f, 50.f});
+    blackQueen.loadFromFile("BlackQueen.png");
+    whiteQueen.loadFromFile("WhiteQueen.png");
 }
 
-sf::RectangleShape **Grid::createArray(int row, int column)
+sf::RectangleShape **Board::createBoard(int row, int column)
 {
     row = _row;
     column = _column;
@@ -28,40 +29,69 @@ sf::RectangleShape **Grid::createArray(int row, int column)
     return ptr;
 }
 
-sf::RectangleShape Grid::newRectangleShape(float x, float y)
+sf::RectangleShape Board::createCell(float x, float y, bool color)
 {
+    sf::RectangleShape redSquare;
+    sf::RectangleShape blueSquare;
     sf::RectangleShape temp;
-    temp.setSize({200.f, 200.f});
-    temp.setFillColor(sf::Color::Blue);
+
+    redSquare.setFillColor(sf::Color::Red);
+    redSquare.setSize({80.f, 80.f});
+    redSquare.setOutlineColor(sf::Color::White);
+    redSquare.setOutlineThickness(5.f);
+    redSquare.setPosition(x, y);
+    
+    blueSquare.setSize({80.f, 80.f});
+    blueSquare.setFillColor(sf::Color::Blue);
+    blueSquare.setOutlineColor(sf::Color::White);
+    blueSquare.setOutlineThickness(5.f);
+    blueSquare.setPosition(x, y);
+
+    temp.setSize({80.f, 80.f});
+    temp.setFillColor(sf::Color::Red);
     temp.setOutlineColor(sf::Color::White);
-    temp.setOutlineThickness(20.f);
+    temp.setOutlineThickness(5.f);
     temp.setPosition(x, y);
-    return temp;
+    if (color) return redSquare;
+    return blueSquare;
 }
 
-void Grid::draw(sf::RenderTarget &window, sf::RenderStates states) const
+void Board::draw(sf::RenderTarget &window, sf::RenderStates states) const
 {
     for (int i = 0; i < _row; ++i)
         for (int j = 0; j < _column; ++j)
             window.draw(ptr[i][j], states);
 }
 
-void Grid::fillArray(float row, float column)
+void Board::makeBoard(float row, float column)
 {
+    ptr = createBoard(row, column);   
     for (int i = 0; i < _row; ++i)
+    {
+        bool color = true;   
         for (int j = 0; j < _column; ++j)
-            ptr[i][j] = newRectangleShape(210 * i, 210 * j);
+        {
+            if (color)
+            {
+                color = false;
+                ptr[i][j] = createCell(90 * i, 90 * j, color);
+            }
+            else if (!color)
+            {
+                color = true;
+                ptr[i][j] = createCell(90 * i, 90 * j, color);
+            }
+        }
+    }
 }
 
-void Grid::addEvent(sf::Keyboard::Key keyPressed)
+void Board::addEvent(sf::Keyboard::Key keyPressed)
 {
     if (keyPressed == sf::Keyboard::Up)
     {
         ++_row;
         ++_column;
         std::cout << "Up" << std::endl;
-        std::cout << _row << std::endl;
-        std::cout << _column << std::endl;
     }
     if (keyPressed == sf::Keyboard::Down)
     {
@@ -72,12 +102,10 @@ void Grid::addEvent(sf::Keyboard::Key keyPressed)
         if (_column < 0)
             _column = 0;
         std::cout << "Down" << std::endl;
-        std::cout << _row << std::endl;
-        std::cout << _column << std::endl;
     }  
 }
 
-Grid::~Grid()
+Board::~Board()
 {
     for (int i = 0; i < _row; ++i)
         delete [] ptr[i];

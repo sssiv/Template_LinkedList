@@ -22,10 +22,10 @@ void printQueens()
 	CLEAR;
 }
 
-void displayGrid()
+void displayBoard()
 {
-	Grid grid;
-    sf::RenderWindow window({1920, 1080, 32}, "Grid");
+	Board board;
+    sf::RenderWindow window({2000, 1250, 32}, "chessboard");
     sf::RenderStates states;
 
     while (window.isOpen())
@@ -39,19 +39,18 @@ void displayGrid()
             }
             else if (event.type == sf::Event::KeyPressed)
             {
-                grid.addEvent(event.key.code);
+                board.addEvent(event.key.code);
             }
         }
         window.clear();
-        grid.createArray(2, 3);
-        grid.fillArray(2, 3);
-        window.draw(grid);
+        board.makeBoard(1, 1);
+        window.draw(board);
         window.display();
     }
 }
 
 int main()
 {
-	displayGrid();
+	displayBoard();
 	return 0;
 }
