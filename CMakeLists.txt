@@ -7,7 +7,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -static")
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(SOURCE_FILES main.cpp node.cpp list.cpp stack.cpp queue.cpp iterator.cpp queenes.cpp)
+set(SOURCE_FILES main.cpp node.cpp list.cpp stack.cpp iterator.cpp queenes.cpp chessboard.cpp)
 
 if (CMAKE_BUILD_TYPE STREQUAL "Release")
     add_executable(${PROJECT_NAME} WIN32 ${SOURCE_FILES})
