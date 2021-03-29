@@ -14,7 +14,6 @@ Node<T>* LinkedList<T>::findItem(const T& item)
     return walker;
 }
 
-
 // Getter - Head*
 T(T)
 const Node<T>* LinkedList<T>::getHead() const {return head;}
@@ -148,7 +147,7 @@ void LinkedList<T>::deleteTail()
 T(T)
 Iterator<T> LinkedList<T>::begin() 
 {
-    Iterator<T> temp(head);
+    itr temp(head);
     return temp;
 }
 
@@ -156,7 +155,7 @@ Iterator<T> LinkedList<T>::begin()
 T(T)
 Iterator<T> LinkedList<T>::end() 
 {
-    Iterator<T> temp;
+    itr temp;
     return temp;
 }
 

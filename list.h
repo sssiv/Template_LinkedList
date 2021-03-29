@@ -24,9 +24,9 @@ private:
     void deleteTail();
 
 public:
-    typedef Iterator<T> iterator;
-    iterator begin();
-    iterator end();
+    typedef Iterator<T> itr;
+    itr begin();
+    itr end();
     LinkedList();
     LinkedList(T);
     LinkedList(const LinkedList<T>&);
