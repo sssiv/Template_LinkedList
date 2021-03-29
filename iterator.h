@@ -3,8 +3,8 @@
 //
 #ifndef ITERATOR_H_
 #define ITERATOR_H_
-#include <iterator>
 #include "node.h"
+#include <iterator>
 
 T(T)
 class Node_Iterator : public std::iterator<std::forward_iterator_tag, T>

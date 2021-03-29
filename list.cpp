@@ -5,6 +5,146 @@
 #define LIST_CPP_
 #include "list.h"
 
+// Search for Node Function
+T(T)
+Node<T>* LinkedList<T>::findItem(const T& item)
+{
+    Node<T> *walker = head;
+    for (walker; (walker != nullptr) && (walker->getData() != item); walker = walker->getNext());
+    return walker;
+}
+
+
+// Getter - Head*
+T(T)
+const Node<T>* LinkedList<T>::getHead() const {return head;}
+
+// Getter - Tail*
+T(T)
+const Node<T>* LinkedList<T>::getTail() const {return tail;}
+
+// Private - Insert After Node
+T(T)
+void LinkedList<T>::insertAfter(Node<T>* node, T item) 
+{
+    Node<T> *newNode = new Node<T>(item);
+    if (head == nullptr)
+    {
+        head = tail = newNode;
+        return;
+    }
+    if (node == tail)
+    {
+        makeNewNode(item);
+        return;
+    }
+    if (node->getNext() == tail)
+    {
+        newNode->setNext(tail);
+        node->setNext(newNode);
+        node = newNode;
+    }
+    else if (node->getNext() != nullptr)
+    {
+        newNode->setNext(node->getNext());
+        newNode->setPrev(node);
+        node->setNext(newNode);
+        node->setPrev(newNode->getPrev());
+    }
+}
+
+
+// Private - Insert Before Node
+T(T)
+void LinkedList<T>::insertBefore(Node<T>* node, T item) 
+{
+    Node<T> *newNode = new Node<T>(item);
+    Node<T> *prev = node->getPrev();
+    if (head == nullptr)
+    {
+        head = tail = newNode;
+        return;
+    }
+    else if (node == head)
+    {
+        insertFirst(item);
+        return;
+    }
+    else if (node != nullptr)
+    {
+        newNode->setNext(node);
+        node->setPrev(newNode);
+        newNode->setPrev(prev);
+        prev->setNext(newNode);
+    }
+}
+
+// Private - Delete Node
+T(T)
+void LinkedList<T>::deleteNode(Node<T> *node)
+{
+    if (node == head)
+    {
+        deleteHead();
+        return;
+    }
+    if (node == tail)
+    {
+        deleteTail();
+        return;
+    }
+    if (node == nullptr)
+    {
+        return;
+    }
+    Node<T> *next = node->getNext();
+    Node<T> *prev = node->getPrev();
+    if (head == tail)
+    {
+        head = tail = nullptr;
+    }
+    else if (node != tail && node != head)
+    {
+        next->setPrev(prev);
+        prev->setNext(next);
+    }
+    delete node;
+}
+
+// Private - Delete Head
+T(T)
+void LinkedList<T>::deleteHead()
+{
+    if (head == tail)
+    {
+        delete head;
+        head = nullptr;
+        tail = nullptr;
+        return;
+    }
+    head = head->getNext();
+    delete head->getPrev();
+    head->setPrev(nullptr);
+}
+
+// Private - Delete Tail 
+T(T)
+void LinkedList<T>::deleteTail() 
+{
+    if (tail == head && tail != nullptr)
+    {
+        delete tail;
+        tail = nullptr;
+        head = nullptr;
+    }
+    else
+    {
+        tail = tail->getPrev();
+        delete tail->getNext();
+        tail->setNext(nullptr);
+    }
+}
+
 // Iterator Begin
 T(T)
 Node_Iterator<T> LinkedList<T>::begin() 
@@ -29,6 +169,19 @@ LinkedList<T>::LinkedList() : head(nullptr), tail(nullptr) {}
 T(T)
 LinkedList<T>::LinkedList(T input) {makeNewNode(input);}
 
+// Copy Constructor
+T(T)
+LinkedList<T>::LinkedList(const LinkedList<T>& List)
+{
+    Node<T> copy;
+    for (Node<T> *temp = List.head, *node = &copy; temp; temp = temp->getNext())
+    {
+        node->setNext(new Node<T>(temp->getData()));
+        node = node->getNext();
+    }
+    this->head = copy.getNext();
+} 
+
 // Deconstructor
 T(T)
 LinkedList<T>::~LinkedList() 
@@ -43,19 +196,6 @@ LinkedList<T>::~LinkedList()
         delete temp;
     }
 }
-
-// Copy Constructor
-T(T)
-LinkedList<T>::LinkedList(const LinkedList<T>& List)
-{
-    Node<T> copy;
-    for (Node<T> *temp = List.head, *node = &copy; temp; temp = temp->getNext())
-    {
-        node->setNext(new Node<T>(temp->getData()));
-        node = node->getNext();
-    }
-    this->head = copy.getNext();
-} 
 
 // += Operator Overload
 T(T)
@@ -127,87 +267,20 @@ void LinkedList<T>::insertFirst(T Type)
     head = temp;  
 }
 
-// Search for Node Function
+// Public - Before After Node
 T(T)
-Node<T>* LinkedList<T>::findItem(const T& item)
+void LinkedList<T>::insertBefore(T search, T item) 
 {
-    Node<T> *walker = head;
-    for (walker; (walker != nullptr) && (walker->getData() != item); walker = walker->getNext());
-    return walker;
+    Node<T>* ptrNode = findItem(search);
+    insertBefore(ptrNode, item);
 }
 
-// Getter - Head*
+// Public - Insert After Node
 T(T)
-Node<T>* LinkedList<T>::getHead() const {return head;}
-
-// Getter - Tail*
-T(T)
-Node<T>* LinkedList<T>::getTail() const {return tail;}
-
-// Private - Delete Node
-T(T)
-void LinkedList<T>::deleteNode(Node<T> *node)
+void LinkedList<T>::insertAfter(T search, T item) 
 {
-    if (node == head)
-    {
-        deleteHead();
-        return;
-    }
-    if (node == tail)
-    {
-        deleteTail();
-        return;
-    }
-    if (node == nullptr)
-    {
-        return;
-    }
-    Node<T> *next = node->getNext();
-    Node<T> *prev = node->getPrev();
-    if (head == tail)
-    {
-        head = tail = nullptr;
-    }
-    else if (node != tail && node != head)
-    {
-        next->setPrev(prev);
-        prev->setNext(next);
-    }
-    delete node;
-}
-
-// Private - Delete Head
-T(T)
-void LinkedList<T>::deleteHead()
-{
-    if (head == tail)
-    {
-        delete head;
-        head = nullptr;
-        tail = nullptr;
-        return;
-    }
-    head = head->getNext();
-    delete head->getPrev();
-    head->setPrev(nullptr);
-}
-
-// Private - Delete Tail 
-T(T)
-void LinkedList<T>::deleteTail() 
-{
-    if (tail == head && tail != nullptr)
-    {
-        delete tail;
-        tail = nullptr;
-        head = nullptr;
-    }
-    else
-    {
-        tail = tail->getPrev();
-        delete tail->getNext();
-        tail->setNext(nullptr);
-    }
+    Node<T>* ptrNode = findItem(search);
+    insertAfter(ptrNode, item);
 }
 
 // Public - Delete Node
@@ -232,77 +305,6 @@ void LinkedList<T>::clearList()
         head->setPrev(nullptr);
     }
     head = tail = nullptr;
-}
-
-// Private - Insert Before Node
-T(T)
-void LinkedList<T>::insertBefore(Node<T>* node, T item) 
-{
-    Node<T> *newNode = new Node<T>(item);
-    Node<T> *prev = node->getPrev();
-    if (head == nullptr)
-    {
-        head = tail = newNode;
-        return;
-    }
-    else if (node == head)
-    {
-        insertFirst(item);
-        return;
-    }
-    else if (node != nullptr)
-    {
-        newNode->setNext(node);
-        node->setPrev(newNode);
-        newNode->setPrev(prev);
-        prev->setNext(newNode);
-    }
-}
-
-// Public - Before After Node
-T(T)
-void LinkedList<T>::insertBefore(T search, T item) 
-{
-    Node<T>* ptrNode = findItem(search);
-    insertBefore(ptrNode, item);
-}
-
-// Private - Insert After Node
-T(T)
-void LinkedList<T>::insertAfter(Node<T>* node, T item) 
-{
-    Node<T> *newNode = new Node<T>(item);
-    if (head == nullptr)
-    {
-        head = tail = newNode;
-        return;
-    }
-    if (node == tail)
-    {
-        makeNewNode(item);
-        return;
-    }
-    if (node->getNext() == tail)
-    {
-        newNode->setNext(tail);
-        node->setNext(newNode);
-        node = newNode;
-    }
-    else if (node->getNext() != nullptr)
-    {
-        newNode->setNext(node->getNext());
-        newNode->setPrev(node);
-        node->setNext(newNode);
-        node->setPrev(newNode->getPrev());
-    }
-}
-
-// Public - Insert After Node
-T(T)
-void LinkedList<T>::insertAfter(T search, T item) 
-{
-    Node<T>* ptrNode = findItem(search);
-    insertAfter(ptrNode, item);
 }
 
 #endif    // LIST_CPP_

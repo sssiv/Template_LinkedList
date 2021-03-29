@@ -43,7 +43,9 @@
         "deque": "cpp",
         "queue": "cpp",
         "vector": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "node.h": "c",
+        "splash.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

@@ -12,7 +12,11 @@ class LinkedList
 private:
     Node<T>* head;
     Node<T>* tail;
+
     Node<T>* findItem(const T&);
+    const Node<T>* getHead() const;
+    const Node<T>* getTail() const;
+
     void insertAfter(Node<T>*, T);
     void insertBefore(Node<T>*, T);
     void deleteNode(Node<T>*);
@@ -27,8 +31,6 @@ public:
     LinkedList(T);
     LinkedList(const LinkedList<T>&);
     ~LinkedList();
-    Node<T>* getHead() const;
-    Node<T>* getTail() const;
 
     LinkedList<T>& operator+=(T);
 

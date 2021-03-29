@@ -115,7 +115,7 @@ Node_Iterator<T>& Node_Iterator<T>::operator=(T item) {return current = current(
 //     return item; //find node
 // }
 
-// != Overload
+// =/= Overload
 T(T)
 bool Node_Iterator<T>::operator!=(const Node_Iterator<T> &itr)
 {

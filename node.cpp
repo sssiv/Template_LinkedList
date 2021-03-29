@@ -17,10 +17,6 @@ Node<T>::Node(T input) : next(nullptr), prev(nullptr), data(input) {}
 T(T)
 void Node<T>::setData(T input) {data = input;}
 
-// Getter - Data
-T(T)
-const T& Node<T>::getData() const {return this->data;}
-
 // Setter - Next*
 T(T)
 void Node<T>::setNext(Node<T> *nextNode) {next = nextNode;}
@@ -28,6 +24,10 @@ void Node<T>::setNext(Node<T> *nextNode) {next = nextNode;}
 // Setter - Prev*
 T(T)
 void Node<T>::setPrev(Node<T> *prevNode) {prev = prevNode;}
+
+// Getter - Data
+T(T)
+const T& Node<T>::getData() const {return this->data;}
 
 // Getter - Next*
 T(T)
