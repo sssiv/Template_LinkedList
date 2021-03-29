@@ -5,16 +5,16 @@
 #define LIST_CPP_
 #include "list.h"
 
-// Iterator 
-template<class T>
+// Iterator Begin
+T(T)
 Node_Iterator<T> LinkedList<T>::begin() 
 {
     Node_Iterator<T> temp(head);
     return temp;
 }
 
-// Iterator
-template<class T>
+// Iterator End
+T(T)
 Node_Iterator<T> LinkedList<T>::end() 
 {
     Node_Iterator<T> temp;
@@ -22,15 +22,15 @@ Node_Iterator<T> LinkedList<T>::end()
 }
 
 // Default Constructor
-template<class T>
+T(T)
 LinkedList<T>::LinkedList() : head(nullptr), tail(nullptr) {}
 
 // T Constructor
-template<class T>
+T(T)
 LinkedList<T>::LinkedList(T input) {makeNewNode(input);}
 
 // Deconstructor
-template<class T>
+T(T)
 LinkedList<T>::~LinkedList() 
 {
     Node<T> *node = head;
@@ -45,7 +45,7 @@ LinkedList<T>::~LinkedList()
 }
 
 // Copy Constructor
-template<class T>
+T(T)
 LinkedList<T>::LinkedList(const LinkedList<T>& List)
 {
     Node<T> copy;
@@ -58,7 +58,7 @@ LinkedList<T>::LinkedList(const LinkedList<T>& List)
 } 
 
 // += Operator Overload
-template<class T>
+T(T)
 LinkedList<T>& LinkedList<T>::operator+=(T data)
 {
     makeNewNode(data);
@@ -66,7 +66,7 @@ LinkedList<T>& LinkedList<T>::operator+=(T data)
 }
  
 // << Operator Overload
-template<class T>
+T(T)
 std::ostream& operator<<(std::ostream &out, const LinkedList<T> &List)
 {  
     for (Node<T>* I = List.head; I != nullptr; I = I->getNext())
@@ -77,7 +77,7 @@ std::ostream& operator<<(std::ostream &out, const LinkedList<T> &List)
 }
 
 // List Size
-template<class T>
+T(T)
 int LinkedList<T>::listSize() const
 {
     if (head == nullptr || tail == nullptr) return 0;
@@ -92,11 +92,11 @@ int LinkedList<T>::listSize() const
 }
 
 // Is or not Empty
-template<class T>
+T(T)
 bool LinkedList<T>::isEmpty() const {return head == nullptr;}
 
 // Make New Node
-template<class T>
+T(T)
 void LinkedList<T>::makeNewNode(T Type)
 {
     Node<T> *temp = new Node<T>;
@@ -117,7 +117,7 @@ void LinkedList<T>::makeNewNode(T Type)
 }
 
 // Public - Insert at head
-template<class T>
+T(T)
 void LinkedList<T>::insertFirst(T Type)
 {
     Node<T> *temp = new Node<T>; 
@@ -128,7 +128,7 @@ void LinkedList<T>::insertFirst(T Type)
 }
 
 // Search for Node Function
-template<class T>
+T(T)
 Node<T>* LinkedList<T>::findItem(const T& item)
 {
     Node<T> *walker = head;
@@ -137,15 +137,15 @@ Node<T>* LinkedList<T>::findItem(const T& item)
 }
 
 // Getter - Head*
-template<class T>
+T(T)
 Node<T>* LinkedList<T>::getHead() const {return head;}
 
 // Getter - Tail*
-template<class T>
+T(T)
 Node<T>* LinkedList<T>::getTail() const {return tail;}
 
 // Private - Delete Node
-template<class T>
+T(T)
 void LinkedList<T>::deleteNode(Node<T> *node)
 {
     if (node == head)
@@ -177,7 +177,7 @@ void LinkedList<T>::deleteNode(Node<T> *node)
 }
 
 // Private - Delete Head
-template<class T>
+T(T)
 void LinkedList<T>::deleteHead()
 {
     if (head == tail)
@@ -185,6 +185,7 @@ void LinkedList<T>::deleteHead()
         delete head;
         head = nullptr;
         tail = nullptr;
+        return;
     }
     head = head->getNext();
     delete head->getPrev();
@@ -192,7 +193,7 @@ void LinkedList<T>::deleteHead()
 }
 
 // Private - Delete Tail 
-template<class T>
+T(T)
 void LinkedList<T>::deleteTail() 
 {
     if (tail == head && tail != nullptr)
@@ -210,7 +211,7 @@ void LinkedList<T>::deleteTail()
 }
 
 // Public - Delete Node
-template<class T>
+T(T)
 void LinkedList<T>::deleteNode(T item) 
 {
     Node<T> *temp = findItem(item);
@@ -219,7 +220,7 @@ void LinkedList<T>::deleteNode(T item)
 }
 
 // Public - Clear List
-template<class T>
+T(T)
 void LinkedList<T>::clearList() 
 {
     Node<T> *temp = head;
@@ -234,7 +235,7 @@ void LinkedList<T>::clearList()
 }
 
 // Private - Insert Before Node
-template<class T>
+T(T)
 void LinkedList<T>::insertBefore(Node<T>* node, T item) 
 {
     Node<T> *newNode = new Node<T>(item);
@@ -259,7 +260,7 @@ void LinkedList<T>::insertBefore(Node<T>* node, T item)
 }
 
 // Public - Before After Node
-template<class T>
+T(T)
 void LinkedList<T>::insertBefore(T search, T item) 
 {
     Node<T>* ptrNode = findItem(search);
@@ -267,7 +268,7 @@ void LinkedList<T>::insertBefore(T search, T item)
 }
 
 // Private - Insert After Node
-template<class T>
+T(T)
 void LinkedList<T>::insertAfter(Node<T>* node, T item) 
 {
     Node<T> *newNode = new Node<T>(item);
@@ -297,7 +298,7 @@ void LinkedList<T>::insertAfter(Node<T>* node, T item)
 }
 
 // Public - Insert After Node
-template<class T>
+T(T)
 void LinkedList<T>::insertAfter(T search, T item) 
 {
     Node<T>* ptrNode = findItem(search);

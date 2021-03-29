@@ -5,7 +5,7 @@
 #define STACK_H_
 #include "list.h"
 
-template<class T>
+T(T)
 class Stack
 {
 private:
@@ -23,7 +23,7 @@ public:
 
     Stack<T>& operator=(T); // LinkedList Param?
 
-template<class S>
+T(S)
 friend std::ostream& operator<<(std::ostream&, const Stack<S>&);
 };
 #include "stack.cpp"

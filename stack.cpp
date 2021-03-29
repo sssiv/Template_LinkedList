@@ -6,15 +6,15 @@
 #include "stack.h"
 
 // Default Constructor
-template<class T>
+T(T)
 Stack<T>::Stack() : used(0) {}
 
 // Deconstructor 
-template<class T>
+T(T)
 Stack<T>::~Stack() {}
 
 // Pop - Deletes Top
-template<class T>
+T(T)
 void Stack<T>::pop() 
 {
     if (List.isEmpty())
@@ -26,7 +26,7 @@ void Stack<T>::pop()
 }
 
 // Push - Adds item to top
-template<class T>
+T(T)
 void Stack<T>::push(const T& item) 
 {
     List.makeNewNode(item);
@@ -34,23 +34,23 @@ void Stack<T>::push(const T& item)
 }
 
 // Top - Returns whats at the end of the Linked List
-template<class T>
+T(T)
 const T Stack<T>::top() const {return List.getTail()->getData();} 
 
 // size - How many Lists are in the Stack
-template<class T>
+T(T)
 int Stack<T>::size() const {return used;}
 
 // isEmpty
-template<class T>
+T(T)
 bool Stack<T>::isEmpty() const {return used == 0;}
 
 // = Operator Overload, Assignment  
-template<class T>
+T(T)
 Stack<T>& Stack<T>::operator=(T item) {}
 
 // << Operator Overload, output
-template<class T>
+T(T)
 std::ostream& operator<<(std::ostream& out, const Stack<T>& stack)
 {
     out << stack.top() << std::endl;

@@ -7,7 +7,7 @@ LIBS = -LC:\\SFML-2.5.1\\lib -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -
 #-------------------------------------------------------------------------------
 
 SOURCES_CPP = $(shell find -type f -name '.cpp')
-OBJECTS = main.o node.o list.o stack.o iterator.o queens.o chessboard.o
+OBJECTS = main.o node.o list.o stack.o iterator.o queens.o chessboard.o heap.o
 
 #-------------------------------------------------------------------------------
 

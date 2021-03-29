@@ -12,22 +12,22 @@ void printQueens()
 {
 	Queens problem1(20);
 	std::cout << problem1 << std::endl;
-	PAUSE;
-	CLEAR;
+    system("pause");
+    system("clear");
 
 	Queens problem2(5);
 	std::cout << problem2 << std::endl;
-	PAUSE;
-	CLEAR;
+    system("pause");
+    system("clear");
 
 	Queens problem3(8);
 	std::cout << problem3 << std::endl;
-	PAUSE;
-	CLEAR;
+    system("pause");
+    system("clear");
 }
 
 // SFML NQueens
-void displayBoard()
+void print_SFML_NQueens()
 {
 	Board board;
     sf::RenderWindow window({2000, 1250, 32}, "chessboard");
@@ -54,8 +54,24 @@ void displayBoard()
     }
 }
 
+// Linked List
+void linked_list()
+{
+    LinkedList<int> list;
+    for (size_t i = 0; i < 10; ++i) list.makeNewNode(i);
+    list += 69;
+
+    std::cout << "Opperator Overload Output" << std::endl;
+    std::cout << list << std::endl << std::endl;
+
+    std::cout << "Iterator Output" << std::endl;
+    for (auto i : list) std::cout << i << "\t";
+}
+
 int main()
 {
-	displayBoard();
+    //printQueens();
+	//print_SFML_NQueens();
+    linked_list();
 	return 0;
 }

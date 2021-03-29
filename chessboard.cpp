@@ -6,7 +6,7 @@
 #include <iostream>
 
 // Default Constructor
-Board::Board() : ptr(nullptr), _row(0), _column(0)
+Board::Board() : boardPtr(nullptr), _row(0), _column(0)
 {
     board.setSize({80.f, 80.f});
     board.setFillColor(sf::Color::Red);
@@ -29,12 +29,10 @@ sf::RectangleShape **Board::initializeBoard(int row, int column)
 {
     row = _row;
     column = _column;
-    ptr = new sf::RectangleShape*[_row];
+    boardPtr = new sf::RectangleShape*[row];
     for (int i = 0; i < row; ++i)
-    {
-        ptr[i] = new sf::RectangleShape[column];
-    }
-    return ptr;
+        boardPtr[i] = new sf::RectangleShape[column];   
+    return boardPtr;
 }
 
 // Make Square
@@ -71,7 +69,7 @@ void Board::draw(sf::RenderTarget &window, sf::RenderStates states) const
     {
         for (int j = 0; j < _column; ++j)
         {
-            window.draw(ptr[i][j], states);
+            window.draw(boardPtr[i][j], states);
             window.draw(sprite_blackQueen, states);
         }
     }
@@ -80,10 +78,10 @@ void Board::draw(sf::RenderTarget &window, sf::RenderStates states) const
 // Public - Create Board
 void Board::makeBoard(float row, float column)
 {
-    ptr = initializeBoard(row, column);  
+    boardPtr = initializeBoard(row, column);  
     for (int i = 0; i < _row; ++i)
         for (int j = 0; j < _column; ++j)
-            ptr[i][j] = makeCell(90 * i, 90 * j, i + j);
+            boardPtr[i][j] = makeCell(90 * i, 90 * j, i + j);
 }
 
 // Key-Presses or Other Action Things
@@ -111,8 +109,8 @@ void Board::addEvent(sf::Keyboard::Key keyPressed)
 Board::~Board()
 {
     for (int i = 0; i < _row; ++i)
-        delete [] ptr[i];
-    delete [] ptr;
+        delete [] boardPtr[i];
+    delete [] boardPtr;
 }
 
 

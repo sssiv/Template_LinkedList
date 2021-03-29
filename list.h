@@ -3,15 +3,10 @@
 //
 #ifndef LIST_H_
 #define LIST_H_
-#include <iostream>
-#include <string>
-#include "node.h"
-#include "iterator.h"
-#define NEW_LINE std::cout << std::endl
-#define PAUSE system("pause")
-#define CLEAR system("clear")
 
-template<class T>
+#include "iterator.h"
+
+T(T)
 class LinkedList 
 {
 private:
@@ -36,7 +31,8 @@ public:
     Node<T>* getTail() const;
 
     LinkedList<T>& operator+=(T);
-    template<class S>
+
+    T(S)
     friend std::ostream& operator<<(std::ostream&, const LinkedList<S>&);
 
     int listSize() const;

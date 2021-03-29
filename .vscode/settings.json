@@ -44,5 +44,6 @@
         "queue": "cpp",
         "vector": "cpp",
         "stack": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }

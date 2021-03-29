@@ -21,6 +21,9 @@ Queens::Queens(int queens) : _numOfQueens(queens)
     setQueens(0);   // Set at 0 to start at the beginning 
 }
 
+// Checks if queen is placed at position
+bool Queens::checkIndex(int row, int col) const {return chessTable[row][col];}
+
 // Deconstructor
 Queens::~Queens()
 {

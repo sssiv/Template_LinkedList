@@ -11,7 +11,10 @@ public:
     Queens();
     Queens(int);
     ~Queens();
-    // check spot
+    
+protected: 
+    bool checkIndex(int, int) const;
+
 private:
     bool** chessTable;
     unsigned int _numOfQueens;
