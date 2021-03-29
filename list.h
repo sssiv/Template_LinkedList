@@ -24,7 +24,7 @@ private:
     void deleteTail();
 
 public:
-    typedef Node_Iterator<T> iterator;
+    typedef Iterator<T> iterator;
     iterator begin();
     iterator end();
     LinkedList();

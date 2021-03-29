@@ -53,7 +53,6 @@ void LinkedList<T>::insertAfter(Node<T>* node, T item)
     }
 }
 
-
 // Private - Insert Before Node
 T(T)
 void LinkedList<T>::insertBefore(Node<T>* node, T item) 
@@ -147,17 +146,17 @@ void LinkedList<T>::deleteTail()
 
 // Iterator Begin
 T(T)
-Node_Iterator<T> LinkedList<T>::begin() 
+Iterator<T> LinkedList<T>::begin() 
 {
-    Node_Iterator<T> temp(head);
+    Iterator<T> temp(head);
     return temp;
 }
 
 // Iterator End
 T(T)
-Node_Iterator<T> LinkedList<T>::end() 
+Iterator<T> LinkedList<T>::end() 
 {
-    Node_Iterator<T> temp;
+    Iterator<T> temp;
     return temp;
 }
 

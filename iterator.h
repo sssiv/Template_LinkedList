@@ -7,34 +7,34 @@
 #include <iterator>
 
 T(T)
-class Node_Iterator : public std::iterator<std::forward_iterator_tag, T>
+class Iterator : public std::iterator<std::forward_iterator_tag, T>
 {
 private:
     Node<T>* current;
-    Node_Iterator<T>* iterateNext();     
+    Iterator<T>* iterateNext();     
     Node<T>* getCurrent();
     
 public:
-    Node_Iterator();
-    Node_Iterator(Node<T>*);
-    Node_Iterator(const Node<T>&);
-    ~Node_Iterator();
+    Iterator();
+    Iterator(Node<T>*);
+    Iterator(const Node<T>&);
+    ~Iterator();
 
-    Node_Iterator<T>& operator++();        //prefix  
-    Node_Iterator<T> operator++(int);      //postfix
-    Node_Iterator<T>& operator--();        //prefix
-    Node_Iterator<T> operator--(int);      //postfix
+    Iterator<T>& operator++();        //prefix  
+    Iterator<T> operator++(int);      //postfix
+    Iterator<T>& operator--();        //prefix
+    Iterator<T> operator--(int);      //postfix
 
-    Node_Iterator<T>& operator+=(unsigned int);   
-    Node_Iterator<T>& operator-=(unsigned int);
+    Iterator<T>& operator+=(unsigned int);   
+    Iterator<T>& operator-=(unsigned int);
 
     const T operator*() const;    //Only seems to work w/o a &
     //const T& operator[](unsigned int);
 
-    Node_Iterator<T>& operator=(T);
+    Iterator<T>& operator=(T);
     
-    bool operator!=(const Node_Iterator<T>&);
-    bool operator==(const Node_Iterator<T>*);
+    bool operator!=(const Iterator<T>&);
+    bool operator==(const Iterator<T>*);
 };
 
 #include "iterator.cpp"

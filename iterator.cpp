@@ -7,31 +7,31 @@
 
 // Next Node
 T(T)
-Node_Iterator<T>* Node_Iterator<T>::iterateNext() {return current->getNext();}
+Iterator<T>* Iterator<T>::iterateNext() {return current->getNext();}
 
 // Current Address-Pointer
 T(T)
-Node<T>* Node_Iterator<T>::getCurrent() {return current;}
+Node<T>* Iterator<T>::getCurrent() {return current;}
 
 // Constructor, default
 T(T)
-Node_Iterator<T>::Node_Iterator() : current(nullptr) {}
+Iterator<T>::Iterator() : current(nullptr) {}
 
 // Constructor, pointer argument
 T(T)
-Node_Iterator<T>::Node_Iterator(Node<T>* node) {current = node;}
+Iterator<T>::Iterator(Node<T>* node) {current = node;}
 
 // Copy Constructor
 T(T)
-Node_Iterator<T>::Node_Iterator(const Node<T>& node) {current = node;}
+Iterator<T>::Iterator(const Node<T>& node) {current = node;}
 
 // Deconstructor
 T(T)
-Node_Iterator<T>::~Node_Iterator() {current = nullptr;}
+Iterator<T>::~Iterator() {current = nullptr;}
 
 // ++ prefix
 T(T)
-Node_Iterator<T>& Node_Iterator<T>::operator++() 
+Iterator<T>& Iterator<T>::operator++() 
 {
     if (current != nullptr)
     {
@@ -42,16 +42,16 @@ Node_Iterator<T>& Node_Iterator<T>::operator++()
 
 // ++ postfix
 T(T)
-Node_Iterator<T> Node_Iterator<T>::operator++(int i) 
+Iterator<T> Iterator<T>::operator++(int i) 
 {
-    Node_Iterator<T>* previous(current);
+    Iterator<T>* previous(current);
     current = current->getNext(); 
     return *this;
 }
 
 // -- prefix
 T(T)
-Node_Iterator<T>& Node_Iterator<T>::operator--() 
+Iterator<T>& Iterator<T>::operator--() 
 {
     current = current->getPrev();
     return *this;
@@ -59,16 +59,16 @@ Node_Iterator<T>& Node_Iterator<T>::operator--()
 
 // -- postfix
 T(T)
-Node_Iterator<T> Node_Iterator<T>::operator--(int i) 
+Iterator<T> Iterator<T>::operator--(int i) 
 {
-    Node_Iterator<T>* previous(current);
+    Iterator<T>* previous(current);
     current = current->getPrev(); 
     return previous;
 }
 
 // += Overload
 T(T)
-Node_Iterator<T>& Node_Iterator<T>::operator+=(unsigned int index) 
+Iterator<T>& Iterator<T>::operator+=(unsigned int index) 
 {
     Node<T>* walker = current;
     int count = 0;
@@ -83,7 +83,7 @@ Node_Iterator<T>& Node_Iterator<T>::operator+=(unsigned int index)
 
 // -= Overload
 T(T)
-Node_Iterator<T>& Node_Iterator<T>::operator-=(unsigned int index) 
+Iterator<T>& Iterator<T>::operator-=(unsigned int index) 
 {
     Node<T>* walker = current;
     int count = 0;
@@ -98,11 +98,11 @@ Node_Iterator<T>& Node_Iterator<T>::operator-=(unsigned int index)
 
 // dereferences
 T(T)
-const T Node_Iterator<T>::operator*() const {return current->getData();}
+const T Iterator<T>::operator*() const {return current->getData();}
 
 // Bracket overload
 // template<class T>
-// const T& Node_Iterator<T>::operator[](unsigned int item)
+// const T& Iterator<T>::operator[](unsigned int item)
 // {
 //     Node<T>* node = current;
 //     while (node != nullptr)
@@ -117,17 +117,17 @@ const T Node_Iterator<T>::operator*() const {return current->getData();}
 
 // = Assignment Operator
 T(T)
-Node_Iterator<T>& Node_Iterator<T>::operator=(T item) {return current = current(item);}
+Iterator<T>& Iterator<T>::operator=(T item) {return current = current(item);}
 
 // =/= Overload
 T(T)
-bool Node_Iterator<T>::operator!=(const Node_Iterator<T> &itr)
+bool Iterator<T>::operator!=(const Iterator<T> &itr)
 {
     return current != itr.current;
 }
 
 // == Overload
 T(T)
-bool Node_Iterator<T>::operator==(const Node_Iterator<T> *itr) {return current == itr;}
+bool Iterator<T>::operator==(const Iterator<T> *itr) {return current == itr;}
 
 #endif    // ITERATOR_CPP_

@@ -45,7 +45,8 @@
         "vector": "cpp",
         "stack": "cpp",
         "node.h": "c",
-        "splash.h": "c"
+        "splash.h": "c",
+        "xtree": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
