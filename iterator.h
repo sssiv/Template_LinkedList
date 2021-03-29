@@ -20,11 +20,11 @@ public:
     Node_Iterator(const Node<T>&);
     ~Node_Iterator();
 
-    Node_Iterator<T> operator++(int);      //postfix
     Node_Iterator<T>& operator++();        //prefix  
-    Node_Iterator<T> operator--(int);      //postfix
+    Node_Iterator<T> operator++(int);      //postfix
     Node_Iterator<T>& operator--();        //prefix
-    
+    Node_Iterator<T> operator--(int);      //postfix
+
     Node_Iterator<T>& operator+=(unsigned int);   
     Node_Iterator<T>& operator-=(unsigned int);
 
