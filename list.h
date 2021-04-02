@@ -10,6 +10,8 @@ T(T)
 class LinkedList 
 {
 private:
+    typedef Iterator<T> itr;
+
     Node<T>* head;
     Node<T>* tail;
 
@@ -24,7 +26,6 @@ private:
     void deleteTail();
 
 public:
-    typedef Iterator<T> itr;
     itr begin();
     itr end();
     LinkedList();

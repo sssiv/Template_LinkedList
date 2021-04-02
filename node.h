@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-#define T(i) template<class i>
+#define T(i) template<class i>    // template maker short-cut
 
 T(T)
 class Node

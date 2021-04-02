@@ -5,7 +5,7 @@
 #define QUEUE_H_
 #include "list.h"
 
-template<class T>
+T(T)
 class Queue 
 {
 private:
@@ -23,7 +23,7 @@ public:
 
     Queue<T>& operator=(const Queue<T>&);      
 
-    template<class S>
+    T(S)
     friend std::ostream& operator<<(std::ostream&, const Queue<S>&); 
 };
 
