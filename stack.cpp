@@ -47,7 +47,11 @@ bool Stack<T>::isEmpty() const {return used == 0;}
 
 // = Operator Overload, Assignment  
 T(T)
-Stack<T>& Stack<T>::operator=(T item) {}
+Stack<T>& Stack<T>::operator=(T item) 
+{
+    push(item);
+    return *this;
+}
 
 // << Operator Overload, output
 T(T)

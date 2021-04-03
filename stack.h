@@ -11,6 +11,7 @@ class Stack
 private:
     LinkedList<T> List;
     size_t used;
+    
 public:
     Stack();
     ~Stack();
