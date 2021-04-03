@@ -1,3 +1,0 @@
-E:/CLion/Playing_Card/cmake-build-debug/CMakeFiles/Playing_Card.dir
-E:/CLion/Playing_Card/cmake-build-debug/CMakeFiles/edit_cache.dir
-E:/CLion/Playing_Card/cmake-build-debug/CMakeFiles/rebuild_cache.dir

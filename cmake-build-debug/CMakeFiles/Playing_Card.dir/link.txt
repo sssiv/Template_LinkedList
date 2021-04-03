@@ -1,3 +1,0 @@
-"E:\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\Playing_Card.dir/objects.a
-E:\mingw-w64\mingw32\bin\ar.exe cr CMakeFiles\Playing_Card.dir/objects.a @CMakeFiles\Playing_Card.dir\objects1.rsp
-E:\mingw-w64\mingw32\bin\g++.exe  -std=c++14 -static -g   -Wl,--whole-archive CMakeFiles\Playing_Card.dir/objects.a -Wl,--no-whole-archive  -o Playing_Card.exe -Wl,--out-implib,libPlaying_Card.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Playing_Card.dir\linklibs.rsp
